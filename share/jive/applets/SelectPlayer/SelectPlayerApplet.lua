@@ -10,7 +10,7 @@ Gets list of all available players and displays for selection. Selection should 
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 
 =cut
 --]]
@@ -192,7 +192,7 @@ function _addPlayerItem(self, player)
 		return
 	end
 
-	-- create a lookup table of valid models, 
+	-- create a lookup table of valid models,
 	-- so Choose Player does not attempt to render a style that doesn't exist
 	local validModel = {
 		softsqueeze = true,
@@ -227,7 +227,7 @@ function _addPlayerItem(self, player)
 	if player:isLocal() then
 		playerWeight = LOCAL_PLAYER_WEIGHT
 	end
-    
+
 	-- if waiting for a SN pin modify name
 	if player:getPin() then
 		if not self.setupMode then
@@ -351,7 +351,7 @@ function setupShowSelectPlayer(self, setupNext, windowStyle)
 
 	self.playerMenu = menu
 	self.setupMode = setupNext ~= nil
-	self.setupNext = setupNext or 
+	self.setupNext = setupNext or
 		function()
 			jiveMain:closeToHome()
 		end
@@ -390,15 +390,15 @@ function setupShowSelectPlayer(self, setupNext, windowStyle)
 
 	window:addWidget(menu)
 
-	window:addTimer(5000, function() 
+	window:addTimer(5000, function()
 				-- only scan if this window is on top, not under a transparent popup
 				if Framework.windowStack[1] ~= window then
 					return
 				end
-				self:_scan() 
+				self:_scan()
 			end)
 
-	window:addTimer(10000, function() 
+	window:addTimer(10000, function()
 				self:_hidePopulatingPlayersPopup()
 			end)
 

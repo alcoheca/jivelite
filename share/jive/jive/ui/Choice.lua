@@ -15,7 +15,7 @@ A choice widget, extends L<jive.ui.Widget>. This widget lets the user select a v
 
  -- New choice with options On and Off, Off is selected
  local choice = jive.ui.Choice(
-	"choice", 
+	"choice",
 	{ "On", "Off" },
     function(object, selectedIndex)
 	    print("Choice is " .. tostring(selectedIndex))
@@ -166,8 +166,8 @@ end
 
 =head2 jive.ui.Choice:setSelectedIndex(selectedIndex)
 
-Sets the selected option index. I<selectedIndex> is the index of the option to select; 
-it is coerced to the next option if out of bounds (i.e. setSelectedIndex(#options + 1) 
+Sets the selected option index. I<selectedIndex> is the index of the option to select;
+it is coerced to the next option if out of bounds (i.e. setSelectedIndex(#options + 1)
 selects the first option).
 
 Note that using this function calls the closure.

@@ -31,7 +31,7 @@ module(..., oo.class)
 --[[
 =head2 IrMenuAccel(positiveButtonName, negativeButtonName)
 
-Creates a filter for accelerated ir events, using ir button names "arrow_down" and "arrow_up" for 
+Creates a filter for accelerated ir events, using ir button names "arrow_down" and "arrow_up" for
 the positive and negative IR event triggers, unless overridden by positiveCode and negativeCode.
 
 Option param:
@@ -74,7 +74,7 @@ I<listSize> is the total number of items in the list.
 function event(self, event, listTop, listIndex, listVisible, listSize)
 
 	local dir = nil
-	if event:isIRCode(self.positiveButtonName) then 
+	if event:isIRCode(self.positiveButtonName) then
 		dir = 1
 	elseif event:isIRCode(self.negativeButtonName) then
 		dir = -1
@@ -109,7 +109,7 @@ function event(self, event, listTop, listIndex, listVisible, listSize)
 		return scrollBy * dir
 	end
 
-	-- apply the acceleration, based on number of "itemChange" cycles, not based on "amount of input" 
+	-- apply the acceleration, based on number of "itemChange" cycles, not based on "amount of input"
 	-- Initial technique: increase the "item change rate" initially and move just by one, later increase scrollBy amount - not quite as sophisticated as SC accel
 
 	if now > self.itemChangePeriod + self.lastItemChangeT then
@@ -117,18 +117,18 @@ function event(self, event, listTop, listIndex, listVisible, listSize)
 		
 		local scrollBy = 1
 		--early on, only move one item at a time, but increase item change period
-		 
-		--currently when you lift the ir button, the last repeat seem to be coming in later, so the menu doesn't 
+		
+		--currently when you lift the ir button, the last repeat seem to be coming in later, so the menu doesn't
 		 -- stop on the item seen on the screen, maybe due to the event loop lag, maybe not
-  		 -- It is then important to go slowly enough early on so that when the ir button is 
+  		 -- It is then important to go slowly enough early on so that when the ir button is
 		 -- lifted that the item stays on the current item. If a faster initial scroll occurs,
 		 -- then the ui usually stops on the item after the selected item.
 		 -- Ideally this can be optimized, to give the best of both worlds.
-		   
+		
 		 -- todo: the acceleration algorithm could be listSize based (i.e. scroll faster soon on a longer list)
 
 		if self.itemChangeCycles == self.cyclesBeforeAccelerationStarts then
-			self.itemChangePeriod = self.itemChangePeriod / 2 
+			self.itemChangePeriod = self.itemChangePeriod / 2
 		elseif self.itemChangeCycles > 80 then
 			scrollBy = 64
 		elseif self.itemChangeCycles > 60 then

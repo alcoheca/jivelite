@@ -306,7 +306,7 @@ int jiveL_textinput_draw(lua_State *L) {
 
 	/* draw text label */
 	if (drawLayer && peer->font) {
-	  
+	
 		if (peer->is_sh) {
 			/* pre-cursor */
 			tsrf = jive_font_ndraw_text(peer->font, peer->sh, text, cursor - cursor_width);

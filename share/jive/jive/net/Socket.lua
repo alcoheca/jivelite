@@ -7,7 +7,7 @@ jive.net.Socket - An abstract socket that sends/receives data using a NetworkThr
 =head1 DESCRIPTION
 
 An abstract socket that sends/receives data using a NetworkThread. It proposes
-services to close/free sockets and interface with the main thread, along with 
+services to close/free sockets and interface with the main thread, along with
 convenient proxy functions.
 
 =head1 SYNOPSIS
@@ -52,7 +52,7 @@ module(..., oo.class)
 
 =head2 jive.net.Socket(jnt, name)
 
-Creates a socket named I<name> to interface with the given I<jnt> 
+Creates a socket named I<name> to interface with the given I<jnt>
 (a L<jive.net.NetworkThread> instance). I<name> is used for debugging and
 defaults to "".
 Must be called by subclasses.
@@ -63,7 +63,7 @@ function __init(self, jnt, name)
 --	log:debug("Socket:__init(", name, ")")
 
 --	_assert(
---		jnt and oo.instanceof(jnt, NetworkThread), 
+--		jnt and oo.instanceof(jnt, NetworkThread),
 --		"Cannot create Socket without NetworkThread object"
 --	)
 

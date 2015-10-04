@@ -6,7 +6,7 @@ jive.net.SocketTcp - A TCP socket to send/recieve data using a NetworkThread
 
 =head1 DESCRIPTION
 
-Implements a tcp socket that sends/receive data using a NetworkThread. 
+Implements a tcp socket that sends/receive data using a NetworkThread.
 jive.net.SocketTcp is a subclass of L<jive.net.Socket> and therefore inherits
 its methods.
 This class is mainly designed as a superclass for L<jive.net.SocketHttp> and
@@ -53,9 +53,9 @@ oo.class(_M, Socket)
 
 =head2 jive.net.SocketTcp(jnt, address, port, name)
 
-Creates a TCP/IP socket named I<name> to interface with the given I<jnt> 
+Creates a TCP/IP socket named I<name> to interface with the given I<jnt>
 (a L<jive.net.NetworkThread> instance). I<name> is used for debugging and
-defaults to "". I<address> and I<port> are the hostname/IP address and port to 
+defaults to "". I<address> and I<port> are the hostname/IP address and port to
 send/receive data from/to.
 Must be called by subclasses.
 

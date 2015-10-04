@@ -13,7 +13,7 @@ also allows wallpapers to be downloaded and selected from the currently  attache
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 SetupWallpaperApplet overrides the following methods:
 
 =cut
@@ -116,7 +116,7 @@ function settingsShow(self)
 	local screenWidth, screenHeight = Framework:getScreenSize()
 
 	-- read all files in the wallpaper/ directory and into self.wallpapers
-	-- this step is done first so images aren't read twice, 
+	-- this step is done first so images aren't read twice,
 	-- once from source area and once from build area
 	for img in self:readdir("wallpaper") do
 		self:_readFile(img, screenWidth, screenHeight)
@@ -130,11 +130,11 @@ function settingsShow(self)
 	-- add no wallpaper item
 	self.menu:addItem({
 		weight = 1,
-		text  = self:string("BLACK"), 
+		text  = self:string("BLACK"),
 		style = 'item_choice',
 		sound = "WINDOWSHOW",
-		check = RadioButton("radio", 
-			self.group, 
+		check = RadioButton("radio",
+			self.group,
 			function()
 				self:setBackground('black', self.currentPlayerId)
 			end,
@@ -154,14 +154,14 @@ function settingsShow(self)
 		end
 		
 		self.menu:addItem({
-			-- anything local goes to the top 
+			-- anything local goes to the top
 			-- (i.e., higher precendence than SC-delivered custom wallpaper)
 			weight = 1,
-			text = title, 
+			text = title,
 			style = 'item_choice',
 			sound = "WINDOWSHOW",
-			check = RadioButton("radio", 
-				self.group, 
+			check = RadioButton("radio",
+				self.group,
 				function()
 					self:setBackground(details.fullpath, self.currentPlayerId)
 				end,
@@ -248,7 +248,7 @@ function _readFile(self, img, screenWidth, screenHeight)
 		end
 
 		-- black now handled by special case so ignored
-		if not self.wallpapers[name] and stringToken ~= 'BLACK' and 
+		if not self.wallpapers[name] and stringToken ~= 'BLACK' and
 			( not pattern or ( pattern and string.match(patternMatch, pattern) ) ) then
 			self.wallpapers[name] = {
 				token    = stringToken,
@@ -303,7 +303,7 @@ function _serverSink(self, data)
 			log:debug("remote wallpaper: ", entry.title, " ", url)
 			self.menu:addItem(
 				{
-					weight = 50,	  
+					weight = 50,	
 					text = entry.title,
 					style = 'item_choice',
 					check = RadioButton("radio",
@@ -320,8 +320,8 @@ function _serverSink(self, data)
 										  log:debug("using cached: ", url)
 										  self:showBackground(url, self.currentPlayerId)
 									  else
-										  self:_fetchFile(url, 
-														  function(set) 
+										  self:_fetchFile(url,
+														  function(set)
 															  if set then
 																  self:setBackground(url, self.currentPlayerId)
 															  else
@@ -423,7 +423,7 @@ function showBackground(self, wallpaper, playerId, force)
 
 		-- get the absolute file path for whatever we have
 		wallpaper = System:findFile(wallpaper)
-		if wallpaper ~= nil then 
+		if wallpaper ~= nil then
 			srf = Tile:loadImage(wallpaper)
 		end
 	end
@@ -434,7 +434,7 @@ end
 
 
 function setBackground(self, wallpaper, playerId, force)
-	if not playerId then 
+	if not playerId then
 		-- default is different based on skin
 		playerId = jiveMain:getSelectedSkin()
 	end

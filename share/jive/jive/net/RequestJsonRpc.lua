@@ -21,7 +21,7 @@ Note the implementation uses the source and sink concept of luasocket.
      print("received: " .. chunk.id)
    end
  end
- 
+
  -- create a RequestJsonRpc
  local myRequest = RequestJsonRpc(mySink, '/jsonservice.js', 'secretmethod', {1, 2 , 3})
 
@@ -74,7 +74,7 @@ function _getBodySource(json)
 					["id"] = json.id,
 				}
 			end
-		end, 
+		end,
 		jsonfilters.encode
 	)
 end

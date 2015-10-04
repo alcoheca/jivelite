@@ -117,7 +117,7 @@ function configureApplet(meta)
 
 
 	-- With the MP firmware when SqueezeNetwork is selected a dummy player with an ff mac
-	-- address is selected, and then a firmware update starts. When this mac address is seen 
+	-- address is selected, and then a firmware update starts. When this mac address is seen
 	-- after the upgrade we need to push the choose player and squeezenetwork pin menus
 	if settings.currentPlayer == "ff:ff:ff:ff:ff:ff" then
 		log:info("SqueezeNetwork dummy player found")

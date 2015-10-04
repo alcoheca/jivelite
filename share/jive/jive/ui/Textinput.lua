@@ -588,7 +588,7 @@ function _eventHandler(self, event)
 				
 				return EVENT_CONSUME
 			else
-				return EVENT_UNUSED 
+				return EVENT_UNUSED
 			end			
 		end
 

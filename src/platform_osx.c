@@ -35,14 +35,14 @@ char *platform_get_mac_address() {
 
     if ( getifaddrs( &ifaphead ) != 0 )
       return NULL;
-    
+
     // iterate over the net interfaces
     for ( ifap = ifaphead; ifap; ifap = ifap->ifa_next )
     {
         struct sockaddr_dl* sdl = (struct sockaddr_dl*)ifap->ifa_addr;
         if ( sdl && ( sdl->sdl_family == AF_LINK ) && ( sdl->sdl_type == IFT_ETHER ))
         {
-            //take the first found address. 
+            //take the first found address.
             //todo: can we be smarter about which is the correct address
             unsigned char * ptr = (unsigned char *)LLADDR(sdl);
 	    macaddr = malloc(18);
@@ -50,7 +50,7 @@ char *platform_get_mac_address() {
             break;
         }
     }
-    
+
     freeifaddrs( ifaphead );
 
     return macaddr;

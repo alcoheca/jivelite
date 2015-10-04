@@ -23,11 +23,11 @@ local setfenv, getfenv, require, pcall, unpack = setfenv, getfenv, require, pcal
 local tostring, tonumber, collectgarbage = tostring, tonumber, collectgarbage
 
 local string           = require("jive.utils.string")
-                       
+
 local oo               = require("loop.simple")
 local io               = require("io")
 local lfs              = require("lfs")
-                       
+
 local debug            = require("jive.utils.debug")
 local utilLog          = require("jive.utils.log")
 local log              = require("jive.utils.log").logger("jivelite.applets")
@@ -99,7 +99,7 @@ end
 function _mkdirRecursive(dir)
     --normalize to "/"
     local dir = dir:gsub("\\", "/")
-   
+
     local newPath = ""
     for i, element in pairs(string.split('/', dir)) do
         newPath = newPath .. element
@@ -115,7 +115,7 @@ function _mkdirRecursive(dir)
         end
         newPath = newPath .. "/"
     end
-    
+
 end
 
 -- _saveApplet
@@ -257,7 +257,7 @@ local function _registerMeta(entry)
 	class.log = entry.appletLogger
 
 	local obj = class()
- 
+
 	-- check Applet version
 -- FIXME the JIVE_VERSION has changed from '1' to '7.x'. lets not break
 -- the applets now.
@@ -375,7 +375,7 @@ local function _evalMetas()
 	end
 
 	-- at this point, we have loaded the meta, the applet strings and settings
-	-- performed the applet registration and we try to remove all traces of the 
+	-- performed the applet registration and we try to remove all traces of the
 	-- meta by removing it from package.loaded, deleting the string table, etc.
 	
 	-- we keep settings around to that we minimize writing to flash. If we wanted to
@@ -424,7 +424,7 @@ end
 
 
 -- _loadApplet
--- loads the applet 
+-- loads the applet
 local function _loadApplet(entry)
 	log:debug("_loadApplet: ", entry.appletName)
 

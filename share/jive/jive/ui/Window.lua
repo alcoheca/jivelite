@@ -369,7 +369,7 @@ function show(self, transition)
 
 		if not self.transparent then
 			-- top window is no longer visiable and it is inactive,
-			-- if the top window is transparent also dispatch 
+			-- if the top window is transparent also dispatch
 			-- events to the lower window(s)
 			local window = topwindow
 			while window do
@@ -483,7 +483,7 @@ function replace(self, toReplace, transition)
 				stack[i] = self
 
 				-- if the old window was visible, the new one
-				-- is now 
+				-- is now
 				if oldwindow.visible then
 					self:dispatchNewEvent(EVENT_SHOW)
 				end

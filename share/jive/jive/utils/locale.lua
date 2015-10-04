@@ -236,7 +236,7 @@ function loadAllStrings(self, myFilePath)
 	end
 	
 	local allStrings = {}
-	local token 
+	local token
 	while true do
 		local line = stringsFile:read()
 		if not line then

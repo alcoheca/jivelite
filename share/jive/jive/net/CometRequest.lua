@@ -21,7 +21,7 @@ Note the implementation uses the source and sink concept of luasocket.
      print("received: " .. chunk.id)
    end
  end
- 
+
  -- create a CometRequest, passing in the full URI and data to encode into JSON
  local req = CometRequest(mySink, uri, data)
 
@@ -64,7 +64,7 @@ function _getBodySource(data)
 				sent = true
 				return data
 			end
-		end, 
+		end,
 		jsonfilters.encode
 	)
 end

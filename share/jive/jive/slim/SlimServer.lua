@@ -179,7 +179,7 @@ function _serverstatusSink(self, event, err)
 
 	local data = event.data
 
-	-- check we have a result 
+	-- check we have a result
 	if not data then
 		log:error(self, ": chunk with no data ??!")
 		log:error(event)
@@ -978,7 +978,7 @@ function processArtworkQueue(self)
 				-- XXXX manage pool of connections to remote server
 				local uri  = req:getURI()
 				local http = SocketHttp(self.jnt, uri.host, uri.port, uri.host)
- 
+
 				http:fetch(req)
 			elseif self.artworkPool then
 				-- slimserver icon id

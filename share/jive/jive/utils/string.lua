@@ -11,7 +11,7 @@ jive.util.string - string utilities
 
 Assorted utility functions for strings
 
-Builds on Lua's built-in string.* class 
+Builds on Lua's built-in string.* class
 
 =head1 SYNOPSIS
 
@@ -47,7 +47,7 @@ function str2hex(s)
 			s,
 			"(.)",
 			function (c)
-				s_hex = s_hex .. ltable.format("%02X ",ltable.byte(c)) 
+				s_hex = s_hex .. ltable.format("%02X ",ltable.byte(c))
 			end)
 	return s_hex
 end
@@ -110,13 +110,13 @@ end
 
 Identical to Lua's string.match() method, but escapes all special characters in the substring first
 
-Looks for the first match of pattern in the string s. 
+Looks for the first match of pattern in the string s.
 
-If it finds one, then matchLiteral returns the captures from the pattern; otherwise it returns nil. 
+If it finds one, then matchLiteral returns the captures from the pattern; otherwise it returns nil.
 
-If pattern specifies no captures, then the whole match is returned. 
+If pattern specifies no captures, then the whole match is returned.
 
-A third, optional numerical argument init specifies where to start the search; its default value is 1 and can be negative. 
+A third, optional numerical argument init specifies where to start the search; its default value is 1 and can be negative.
 
 =cut
 --]]
@@ -125,7 +125,7 @@ function matchLiteral(s, pattern, init)
 	-- first escape all special characters in pattern
 	local escapedPattern = ltable.gsub(pattern, "[%^%$%(%)%%%.%[%]%*%+%-%?]", "%%%1")
 	return ltable.match(s, escapedPattern, init)
- 
+
 end
 
 --[[
@@ -139,9 +139,9 @@ Decodes a URL-encoded string
 
 function urlDecode (str)
 	str = ltable.gsub(str, "+", " ")
-	str = ltable.gsub(str, "%%(%x%x)", 
-		function(h) 
-			return ltable.char(tonumber(h,16)) 
+	str = ltable.gsub(str, "%%(%x%x)",
+		function(h)
+			return ltable.char(tonumber(h,16))
 		end
 	)
 	str = ltable.gsub (str, "\r\n", "\n")
@@ -161,8 +161,8 @@ Takes a string as an arg and returns an encoded URL-encoded string
 function urlEncode (str)
 	str = ltable.gsub(str, "\n", "\r\n")
 	str = ltable.gsub(str, "([^0-9a-zA-Z ])",
-		function(c) 
-			return ltable.format("%%%02X", ltable.byte(c)) 
+		function(c)
+			return ltable.format("%%%02X", ltable.byte(c))
 		end
 	)
 	str = ltable.gsub(str, " ", "+")

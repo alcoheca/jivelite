@@ -77,7 +77,7 @@ function event(self, event, listTop, listIndex, listVisible, listSize)
 	-- Only move one item up or down in the list
 	local dir = scroll > 0 and 1 or -1
 
-	-- Don't scroll if the list has not yet loaded 
+	-- Don't scroll if the list has not yet loaded
 	if not _itemAvailable(self, listIndex + dir + (listIndex - listTop), listVisible, listSize) then
 		dir = 0
 	end

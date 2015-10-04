@@ -12,7 +12,7 @@ level is taken into account immediately.
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 LogSettingsApplet overrides the following methods:
 
 =cut
@@ -67,7 +67,7 @@ local function _gatherLogCategories()
 	
 		-- create a Choice
 		local choice = Choice(
-			"choice", 
+			"choice",
 			levels,
 			function(obj, selectedIndex)
 				log:debug("set ", name, " to ", levels[selectedIndex])
@@ -77,7 +77,7 @@ local function _gatherLogCategories()
 		)
 		
 		-- insert suitable entry for Choice menu
-		table.insert(res, 
+		table.insert(res,
 			{
 				text = name,
 				style = 'item_choice',

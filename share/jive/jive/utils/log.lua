@@ -20,7 +20,7 @@ now implemented in C.
  local log = jive.utils.log.logger("net.http")
 
  -- typically at the top of a module, you'd do
- local log = require("jive.utils.log").logger("net.http") 
+ local log = require("jive.utils.log").logger("net.http")
 
  -- log something
  log:debug("hello world")
@@ -32,7 +32,7 @@ now implemented in C.
  161845:39202 DEBUG (somefile.lua:45) - Hello world
 
 The logging functions concatenate data more efficiently than operator .. does,
-so for best performance, do 
+so for best performance, do
 
  log:debug("Welcome ", first_name, ", thanks for visiting us ", time_of_day)
 

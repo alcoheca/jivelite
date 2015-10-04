@@ -18,7 +18,7 @@ local _assert, ipairs, pairs, string, tostring, type, getmetatable = _assert, ip
 
 local oo                   = require("loop.simple")
 local debug                = require("jive.utils.debug")
-                           
+
 local table                = require("jive.utils.table")
 local Framework            = require("jive.ui.Framework")
 local Event                = require("jive.ui.Event")
@@ -60,7 +60,7 @@ local EVENT_MOUSE_ALL      = jive.ui.EVENT_MOUSE_ALL
 
 local EVENT_CONSUME        = jive.ui.EVENT_CONSUME
 local EVENT_UNUSED         = jive.ui.EVENT_UNUSED
-                           
+
 local KEY_FWD              = jive.ui.KEY_FWD
 local KEY_REW              = jive.ui.KEY_REW
 local KEY_GO               = jive.ui.KEY_GO
@@ -145,7 +145,7 @@ function updateFlickData(self, mouseEvent)
 		end
 	end
 
-	--use last flick data collection time as initital scroll time to avoid jerky delay when afterscroll starts 
+	--use last flick data collection time as initital scroll time to avoid jerky delay when afterscroll starts
 	self.flickInitialScrollT = Framework:getTicks()
 
 	table.insert(self.flickData.points, {y = y, ticks = ticks})

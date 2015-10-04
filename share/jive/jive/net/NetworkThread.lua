@@ -67,7 +67,7 @@ local squeezenetworkHostname = "www.squeezenetwork.com"
 -- adds a socket to the read or write list
 -- timeout == 0 => no time out!
 local function _add(sock, task, sockList, timeout)
-	if not sock then 
+	if not sock then
 		return
 	end
 
@@ -92,8 +92,8 @@ end
 -- _remove
 -- removes a socket from the read or write list
 local function _remove(sock, sockList)
-	if not sock then 
-		return 
+	if not sock then
+		return
 	end
 
 	-- remove the socket from the sockList

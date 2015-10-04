@@ -9,7 +9,7 @@ applets.ImageViewer.ImageSourceHttp - Image source for Image Viewer
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 
 =cut
 --]]
@@ -73,7 +73,7 @@ function readImageList(self)
 					l = string.gsub(l, "\n*", "")
 					l = string.gsub(l, "\r*", "")
 					if l ~= "" then
-						self.imgFiles[#self.imgFiles+1] = l 
+						self.imgFiles[#self.imgFiles+1] = l
 						log:debug(l)
 					end
 				end
@@ -182,7 +182,7 @@ function _fixImageListURL(self)
 		log:warn("Replacing with default value")
 		self.applet:getSettings()["http.path"] = defaultUrl
 		self.applet:storeSettings()
-	end 
+	end
 end
 
 --[[

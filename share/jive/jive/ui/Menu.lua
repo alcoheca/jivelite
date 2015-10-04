@@ -35,7 +35,7 @@ local _assert, ipairs, pairs, string, tostring, type, getmetatable, bit = _asser
 
 local oo                   = require("loop.simple")
 local debug                = require("jive.utils.debug")
-                           
+
 local table                = require("jive.utils.table")
 local Framework            = require("jive.ui.Framework")
 local Event                = require("jive.ui.Event")
@@ -81,7 +81,7 @@ local EVENT_MOUSE_ALL      = jive.ui.EVENT_MOUSE_ALL
 
 local EVENT_CONSUME        = jive.ui.EVENT_CONSUME
 local EVENT_UNUSED         = jive.ui.EVENT_UNUSED
-                           
+
 local KEY_FWD              = jive.ui.KEY_FWD
 local KEY_REW              = jive.ui.KEY_REW
 local KEY_GO               = jive.ui.KEY_GO
@@ -572,7 +572,7 @@ local function _eventHandler(self, event)
 			elseif string.match(action, "play_preset") then
 				-- within menus treat preset button presses as special case to allow number keyboard based menu scrolling
 				if self.textIndexHandler then
-					local consume, switchCharacters, scrollLetter = 
+					local consume, switchCharacters, scrollLetter =
 						self.numberLetterAccel:handleEvent(event, self.textIndexHandler.getValidChars())
 					if consume then
 						if scrollLetter then
@@ -594,7 +594,7 @@ local function _eventHandler(self, event)
 		
 		local scroll
 
-		if (keycode == KEY_LEFT or keycode == KEY_RIGHT) and self.itemsPerLine and 
+		if (keycode == KEY_LEFT or keycode == KEY_RIGHT) and self.itemsPerLine and
 			(self.itemsPerLine == 1 or (keycode == KEY_LEFT and (self.selected == nil or self.selected == 1))) then
 			if keycode == KEY_LEFT then
 				Framework:pushAction("back")
@@ -1062,7 +1062,7 @@ function __init(self, style, itemRenderer, itemListener, itemAvailable, contextM
 	
 	obj.scroll = ScrollAccel(function(...)
 					 if itemAvailable then
-						 
+						
 					 else
 						 return true
 					 end
@@ -1125,7 +1125,7 @@ function __init(self, style, itemRenderer, itemListener, itemAvailable, contextM
 				       obj:reLayout()
 			       end,
 			       true)
-			       
+			
 	obj.accelKeyTimer = Timer(500,
 					function()
 				    	obj.accelKey = nil
@@ -1372,7 +1372,7 @@ function setSelectedIndex(self, index, coerce)
 		if index < 1 then
 			index = 1
 		elseif index > self.listSize then
-			index = self.listSize 
+			index = self.listSize
 		end
 	end
 
@@ -1562,7 +1562,7 @@ function scrollBy(self, scroll, allowMultiple, isNewOperation, forceAccel)
 		elseif selected < 1 then
 			selected = self.listSize
 		end	
-		   
+		
 	else -- isNewOperation nil, so use breakthrough barrier
 		-- virtual barrier when scrolling off the ends of the list
 		if self.barrier and Framework:getTicks() > self.barrier + 1400 then
@@ -1676,7 +1676,7 @@ function _scrollList(self)
 			-- otherwise, try to leave one item above the selected one (we've scrolled out of the view)
 		elseif selected <= topItem  + ( self.itemsBeforeScroll - 1 ) then
 			-- if we land here, selected > 1 so topItem cannot become < 1
-			topItem = selected - self:getEffectiveItemsBeforeScroll() 
+			topItem = selected - self:getEffectiveItemsBeforeScroll()
 			
 			-- show the last item if it is selected
 		elseif selected == self.listSize then

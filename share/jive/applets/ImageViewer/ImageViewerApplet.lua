@@ -10,7 +10,7 @@ Finds images from removable media and displays them as a slideshow
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 
 =cut
 --]]
@@ -67,8 +67,8 @@ module(..., Framework.constants)
 oo.class(_M, Applet)
 
 local transitionBoxOut
-local transitionTopDown 
-local transitionBottomUp 
+local transitionTopDown
+local transitionBottomUp
 local transitionLeftRight
 local transitionRightLeft
 
@@ -94,7 +94,7 @@ function initImageSource(self, imgSourceOverride)
 
 	self:setImageSource(imgSourceOverride)
 
-	self.transitions = { transitionBoxOut, transitionTopDown, transitionBottomUp, transitionLeftRight, transitionRightLeft, 
+	self.transitions = { transitionBoxOut, transitionTopDown, transitionBottomUp, transitionLeftRight, transitionRightLeft,
 		Window.transitionFadeIn, Window.transitionPushLeft, Window.transitionPushRight }
 end
 
@@ -125,7 +125,7 @@ function openImageViewer(self)
 	
 	local menu = SimpleMenu("menu", {
 		{
-			text = self:string("IMAGE_VIEWER_START_SLIDESHOW"), 
+			text = self:string("IMAGE_VIEWER_START_SLIDESHOW"),
 			sound = "WINDOWSHOW",
 			callback = function(event, menuItem)
 				self:startSlideshow(false)
@@ -133,7 +133,7 @@ function openImageViewer(self)
 			end
 		},
 		{
-			text = self:string("IMAGE_VIEWER_SETTINGS"), 
+			text = self:string("IMAGE_VIEWER_SETTINGS"),
 			sound = "WINDOWSHOW",
 			callback = function()
 				self:openSettings()
@@ -144,7 +144,7 @@ function openImageViewer(self)
 	
 	if System:hasLocalStorage() then
 		menu:insertItem({
-			text = self:string("IMAGE_VIEWER_BROWSE_MEDIA"), 
+			text = self:string("IMAGE_VIEWER_BROWSE_MEDIA"),
 			sound = "WINDOWSHOW",
 			callback = function(event, menuItem)
 				self:browseFolder("/media")
@@ -193,8 +193,8 @@ function browseFolder(self, folder, title)
 			elseif lfs.attributes(fullpath, "mode") == "file" then
 				-- check for supported file type
 				if string.find(string.lower(fullpath), "%pjpe*g")
-						or string.find(string.lower(fullpath), "%ppng") 
-						or string.find(string.lower(fullpath), "%pbmp") 
+						or string.find(string.lower(fullpath), "%ppng")
+						or string.find(string.lower(fullpath), "%pbmp")
 						or string.find(string.lower(fullpath), "%pgif") then
 					-- log:info(fullpath)
 					menu:addItem({
@@ -253,7 +253,7 @@ function browseFolder(self, folder, title)
 				
 				window:addWidget(menu)
 				window:show()
-			end 
+			end
 
 			return EVENT_CONSUME
 		end)
@@ -376,13 +376,13 @@ function showTextWindow(self)
 
 	window:addWidget(menu)
 
-	window:addActionListener("back", self, 
+	window:addActionListener("back", self,
 		function ()
 			window:hide()
 			return EVENT_CONSUME
 		end)
 
-	window:show() 
+	window:show()
 end
 
 function _setWallpaper(self, window)
@@ -440,7 +440,7 @@ function _setWallpaper(self, window)
 		if string.find(string.lower(img), pattern) and string.lower(img) ~= string.lower(file) then
 			log:warn("removing old saved wallpaper: ", img)
 			os.remove(path .. img)
-		end 
+		end
 	end
 end
 
@@ -836,7 +836,7 @@ function _renderImage(self)
 		-- otherwise it's new
 		else
 			self.window = window
-			self:tieAndShowWindow(window, window.transitionFadeIn) -- fade in for smooth consistent start 
+			self:tieAndShowWindow(window, window.transitionFadeIn) -- fade in for smooth consistent start
 		end
 
 		-- no screensavers por favor
@@ -888,7 +888,7 @@ function openSettings(self)
 
 	local settingsMenu = {
 		{
-			text = self:string("IMAGE_VIEWER_SOURCE_SETTINGS"), 
+			text = self:string("IMAGE_VIEWER_SOURCE_SETTINGS"),
 			sound = "WINDOWSHOW",
 			callback = function(event, menuItem)
 				self:sourceSpecificSettings(menuItem)
@@ -951,7 +951,7 @@ function openSettings(self)
 	-- no need for a source setting on baby - we don't have any choice
 	if System:hasLocalStorage() then
 		table.insert(settingsMenu, 1, {
-			text = self:string("IMAGE_VIEWER_SOURCE"), 
+			text = self:string("IMAGE_VIEWER_SOURCE"),
 			sound = "WINDOWSHOW",
 			callback = function(event, menuItem)
 				self:defineSource(menuItem)
@@ -1062,70 +1062,70 @@ function defineTransition(self, menuItem)
                 text = self:string("IMAGE_VIEWER_TRANSITION_TOP_DOWN"),
 		style = 'item_choice',
 				check = RadioButton(
-				   "radio", 
-				   group, 
-				   function() 
-					   self:setTransition("topdown") 
+				   "radio",
+				   group,
+				   function()
+					   self:setTransition("topdown")
 				   end,
 				   trans == "topdown"
 				),
 			},
-			{ 
+			{
                 text = self:string("IMAGE_VIEWER_TRANSITION_BOTTOM_UP"),
 		style = 'item_choice',
 				check = RadioButton(
-				   "radio", 
-				   group, 
-				   function() 
-					   self:setTransition("bottomup") 
+				   "radio",
+				   group,
+				   function()
+					   self:setTransition("bottomup")
 				   end,
 				   display == "bottomup"
 				),
 			},
-			{ 
+			{
                 text = self:string("IMAGE_VIEWER_TRANSITION_LEFT_RIGHT"),
 		style = 'item_choice',
 				check = RadioButton(
-				   "radio", 
-				   group, 
-				   function() 
-					   self:setTransition("leftright") 
+				   "radio",
+				   group,
+				   function()
+					   self:setTransition("leftright")
 				   end,
 				   trans == "leftright"
 				),
 			},
-			{ 
+			{
                 text = self:string("IMAGE_VIEWER_TRANSITION_RIGHT_LEFT"),
 		style = 'item_choice',
 				check = RadioButton(
-				   "radio", 
-				   group, 
-				   function() 
-					   self:setTransition("rightleft") 
+				   "radio",
+				   group,
+				   function()
+					   self:setTransition("rightleft")
 				   end,
 				   trans == "rightleft"
 				),
 			},
-			{ 
+			{
                 text = self:string("IMAGE_VIEWER_TRANSITION_PUSH_LEFT"),
 		style = 'item_choice',
 				check = RadioButton(
-				   "radio", 
-				   group, 
-				   function() 
-					   self:setTransition("pushleft") 
+				   "radio",
+				   group,
+				   function()
+					   self:setTransition("pushleft")
 				   end,
 				   trans == "pushleft"
 				),
 			},
-			{ 
+			{
                 text = self:string("IMAGE_VIEWER_TRANSITION_PUSH_RIGHT"),
 		style = 'item_choice',
 				check = RadioButton(
-				   "radio", 
-				   group, 
-				   function() 
-					   self:setTransition("pushright") 
+				   "radio",
+				   group,
+				   function()
+					   self:setTransition("pushright")
 				   end,
 				   trans == "pushright"
 				),
@@ -1157,12 +1157,12 @@ function defineSource(self, menuItem)
 		},
 
 		{
-			text = self:string("IMAGE_VIEWER_SOURCE_FLICKR"), 
+			text = self:string("IMAGE_VIEWER_SOURCE_FLICKR"),
 			style = 'item_choice',
 			check = RadioButton(
-				"radio", 
-				group, 
-				function() 
+				"radio",
+				group,
+				function()
 					self:setSource("flickr")
 				end,
 				source == "flickr"
@@ -1242,12 +1242,12 @@ function defineDelay(self, menuItem)
 				style = 'item_choice',
 				check = RadioButton("radio", group, function() self:setDelay(10000) end, delay == 10000),
 			},
-			{ 
+			{
 				text = self:string("IMAGE_VIEWER_DELAY_20_SEC"),
 				style = 'item_choice',
 				check = RadioButton("radio", group, function() self:setDelay(20000) end, delay == 20000),
 			},
-			{ 
+			{
 				text = self:string("IMAGE_VIEWER_DELAY_30_SEC"),
 				style = 'item_choice',
 				check = RadioButton("radio", group, function() self:setDelay(30000) end, delay == 30000),
@@ -1295,7 +1295,7 @@ function defineFullScreen(self, menuItem)
                     end,
                     fullscreen == true
 	            ),
-            },           
+            },
 		}))
 
 	self:tieAndShowWindow(window)
@@ -1334,7 +1334,7 @@ function defineRotation(self, menuItem)
                     end,
                     not rotation
 	            ),
-            },           
+            },
 		}))
 
 	self:tieAndShowWindow(window)
@@ -1372,7 +1372,7 @@ function defineTextInfo(self, menuItem)
                     end,
                     textinfo == false
 	            ),
-            },           
+            },
 		}))
 
 	self:tieAndShowWindow(window)

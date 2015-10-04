@@ -30,8 +30,8 @@ function configureApplet(self)
 	-- add ourselves
 	appletManager:callService("addScreenSaver",
 		"Blank Screen",
-		"BlankScreenSaver", 
-		"openScreensaver", _, _, 100, 
+		"BlankScreenSaver",
+		"openScreensaver", _, _, 100,
 		"closeScreensaver"
 	)
 end

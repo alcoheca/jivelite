@@ -6,7 +6,7 @@ CFLAGS  = -I/usr/local/include/SDL
 LDFLAGS = -lSDLmain -lresolv -Wl,-framework,Cocoa
 
 # this is needed for luajit on 64 bit osx
-LDFLAGS += -pagezero_size 10000 -image_base 100000000 
+LDFLAGS += -pagezero_size 10000 -image_base 100000000
 
 SOURCES = platform_osx.c
 

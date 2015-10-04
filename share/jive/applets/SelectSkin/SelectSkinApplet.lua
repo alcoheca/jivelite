@@ -10,7 +10,7 @@ This applet allows the SqueezePlay skin to be selected.
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 SelectSkinApplet overrides the following methods:
 
 =cut
@@ -106,8 +106,8 @@ function selectSkin(self, title, skinType, previouslySelectedSkin, setupNext)
 			text = name,
 			style = 'item_choice',
 			check = RadioButton(
-				"radio", 
-				group, 
+				"radio",
+				group,
 				function()
 					local activeSkinType = appletManager:callService("getActiveSkinType") or "skin"
 					local currentSkin = JiveMain:getSelectedSkin()

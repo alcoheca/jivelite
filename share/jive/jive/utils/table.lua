@@ -5,7 +5,7 @@ jive.util.table - table utilities
 
 =head1 DESCRIPTION
 
-Assorted utility functions for tables. This extends 
+Assorted utility functions for tables. This extends
 the lua built-in table.* functions.
 
 =head1 SYNOPSIS

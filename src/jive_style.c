@@ -410,7 +410,7 @@ int jiveL_style_color(lua_State *L) {
 	}
 
 	lua_pop(L, 5);
- 
+
 	lua_pushnumber(L, (lua_Integer)((r << 24) | (g << 16) | (b << 8) | a) );
 	return 1;
 }
@@ -459,7 +459,7 @@ int jiveL_style_array_color(lua_State *L) {
 	}
 
 	lua_pop(L, 5);
- 
+
 	lua_pushnumber(L, (lua_Integer)((r << 24) | (g << 16) | (b << 8) | a) );
 	return 1;
 }

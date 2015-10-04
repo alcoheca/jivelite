@@ -34,7 +34,7 @@ end
 
 
 function defaultSettings(meta)
-	return { 
+	return {
 		WQVGAsmallSkin = "fab4_encore.png",
 	}
 end

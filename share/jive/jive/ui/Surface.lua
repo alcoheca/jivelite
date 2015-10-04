@@ -73,7 +73,7 @@ Returns I<w, h>, the surface size.
 
 Free the wrapped surface object. This can be useful if temporary surfaces are created frequently (such as when using rotozoom), Lua has
   garbage collection that will eventually free it, but since Lua does not realize the size of the data, it make the gc of it a low priority.
-  This can lead to an OOM error, so it prudent to use release when working with any temporary surface. 
+  This can lead to an OOM error, so it prudent to use release when working with any temporary surface.
 
 =back
 

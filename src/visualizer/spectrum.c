@@ -22,11 +22,11 @@
 // 0..1 in 32 steps. This creates a curve weighted towards
 // lower values.
 static int power_map[32] = {
-  0, 362, 2048, 5643, 11585, 20238, 31925, 46935, 65536, 87975, 114486, 
-  145290, 180595, 220603, 265506, 315488, 370727, 431397, 497664, 
-  569690, 647634, 731649, 821886, 918490, 1021605, 1131370, 1247924, 
+  0, 362, 2048, 5643, 11585, 20238, 31925, 46935, 65536, 87975, 114486,
+  145290, 180595, 220603, 265506, 315488, 370727, 431397, 497664,
+  569690, 647634, 731649, 821886, 918490, 1021605, 1131370, 1247924,
   1371400, 1501931, 1639645, 1784670, 1937131
-}; 
+};
 
 #define X_SCALE_LOG 20
 
@@ -72,7 +72,7 @@ static int subbands_in_bar[2];
 // The number of histogram to display
 static int num_bars[2];
 
-// Is the channel histogram flipped 
+// Is the channel histogram flipped
 static int channel_flipped[2];
 
 // Do we clip the number of subbands shown based on the width
@@ -95,7 +95,7 @@ static int num_windows;
 // channel?
 static int is_mono;
 
-// The value to use for computing preemphasis 
+// The value to use for computing preemphasis
 // TODO: needed as parameter?
 //static int preemphasis_db_per_khz;
 

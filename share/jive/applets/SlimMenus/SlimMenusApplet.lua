@@ -7,7 +7,7 @@ local oo                     = require("loop.simple")
 local math                   = require("math")
 local table                  = require("jive.utils.table")
 local string                 = require("string")
-                             
+
 local Applet                 = require("jive.Applet")
 local Player                 = require("jive.slim.Player")
 local SlimServer             = require("jive.slim.SlimServer")
@@ -219,9 +219,9 @@ function notify_serverConnected(self, server)
 	
 	-- Bug 15633: if the server has just connected and we do not have our menus
 	-- yet then the request must have been lost in a transient connection interruption,
-	-- so reissue the request. 
-	if self.waitingForPlayerMenuStatus 
-		and _server and server == _server 
+	-- so reissue the request.
+	if self.waitingForPlayerMenuStatus
+		and _server and server == _server
 		and _player and _player:isConnected()
 	then
 		--Get initial menus from connected server.
@@ -294,7 +294,7 @@ function _userTriggeredUpdate(self)
 
 	-- only show this window if the player has a brightness button available
 	local playerModel = _player:getModel()
-	if playerModel == 'receiver' 
+	if playerModel == 'receiver'
 		or playerModel == 'softsqueeze'
 		or playerModel == 'softsqueeze3'
 		or playerModel == 'controller'
@@ -380,14 +380,14 @@ function  _registerRemoteScreensaver(self, serverData)
 
 	-- when switching music sources, re-register screensavers as the old server might go away
 	if _playerScreensaverRegistrations[serverData.id] and _playerScreensaverRegistrations[serverData.id].server ~= serverData.server then
-		log:debug("ss already registered, but from different server: ", serverData.id, 
-		          " - new: ", serverData.server, 
+		log:debug("ss already registered, but from different server: ", serverData.id,
+		          " - new: ", serverData.server,
 		          " - old: ", _playerScreensaverRegistrations[serverData.id].server)
 		appletManager:callService("unregisterRemoteScreensaver", serverData.id)
 		_playerScreensaverRegistrations[serverData.id] = nil
 	end
 
-	if not _playerScreensaverRegistrations[serverData.id] then 
+	if not _playerScreensaverRegistrations[serverData.id] then
 		 _playerScreensaverRegistrations[serverData.id] = serverData
 		appletManager:callService("registerRemoteScreensaver", serverData)
 	else
@@ -445,7 +445,7 @@ end
 
 function _addMyAppsNode(self)
 	local version = _player and _player:getSlimServer() and _player:getSlimServer():getVersion()
-	local myApps = { id = 'myApps', iconStyle = 'hm_myApps', node = 'home', text = self:string('MENUS_MY_APPS'), weight = 30  } 
+	local myApps = { id = 'myApps', iconStyle = 'hm_myApps', node = 'home', text = self:string('MENUS_MY_APPS'), weight = 30  }
 	jiveMain:addNode( myApps )
 	_playerMenus['myApps'] = myApps
 
@@ -1031,7 +1031,7 @@ end
 
 
 function _anyKnownSqueezeCenters(self)
-	--Note: this logic is a bit of a duplicate of the servers accumulation code in ChooseMusicSource code 
+	--Note: this logic is a bit of a duplicate of the servers accumulation code in ChooseMusicSource code
 	-- squeezecenter on the poll list
 	local poll = appletManager:callService("getPollList")
 	for address,_ in pairs(poll) do

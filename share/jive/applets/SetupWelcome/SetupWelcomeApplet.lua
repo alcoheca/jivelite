@@ -62,9 +62,9 @@ function setupDone(self)
 		end
 	end
 
-	return appletManager:callService("setupShowSelectPlayer", 
+	return appletManager:callService("setupShowSelectPlayer",
 									 function()
 									 	 closeTask:addTask()
-									 end, 
+									 end,
 									 'setuptitle')
 end

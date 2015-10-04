@@ -115,11 +115,11 @@ function addTimeInputWidgets(self)
 				if (i == 1 and j < 3) or (i == hourCopies and j > 10) then
 				        value = ""
 				end
-			        table.insert(hours, value)  
+			        table.insert(hours, value)
 			end	
 		end
 		hourMenuMiddle = 12 * (hourCopies / 2) + 1
-		 
+		
 
 		self.ampmMenu = SimpleMenu('ampmUnselected')
 		self.ampmMenu:setDisableVerticalBump(true)
@@ -151,7 +151,7 @@ function addTimeInputWidgets(self)
 				if (i == 0 and j < 2) or (i == hourCopies and j > 21) then
 				        value = ""
 				end
-			        table.insert(hours, value)  
+			        table.insert(hours, value)
 			end	
 		end
 		hourMenuMiddle = 24 * (hourCopies / 2) + 1
@@ -217,7 +217,7 @@ function addTimeInputWidgets(self)
 			if (i == 1 and j < 2) or (i == minuteCopies and j > 57) then
 				value = ""
 			end
-			table.insert(minutes, value)  
+			table.insert(minutes, value)
 		end	
 	end
 	local minuteMenuMiddle = 60 * (minuteCopies / 2) + 1
@@ -243,8 +243,8 @@ function addTimeInputWidgets(self)
 	self.minuteMenu:setHideScrollbar(true)
 
 	self.hourMenu:addActionListener('back', self, function() self.window:hide() end)
-	self.hourMenu:addActionListener('go', self, 
-		function() 
+	self.hourMenu:addActionListener('go', self,
+		function()
 			self.hourMenu:setStyle('hourUnselected')
 			self.minuteMenu:setStyle('minute')
 			--next is evil, but not sure how to get style change for a menu the right way, trying various options. Richard?
@@ -253,8 +253,8 @@ function addTimeInputWidgets(self)
 		end
 	)
 
-	self.minuteMenu:addActionListener('go', self, 
-		function() 
+	self.minuteMenu:addActionListener('go', self,
+		function()
 			if self.ampmMenu then
 				self.ampmMenu:setStyle('ampm')
 				self.minuteMenu:setStyle('minuteUnselected')
@@ -264,12 +264,12 @@ function addTimeInputWidgets(self)
 			else
 				local hour   = self.hourMenu:getItem(self.hourMenu:getMiddleIndex()).text
 				local minute = self.minuteMenu:getItem(self.minuteMenu:getMiddleIndex()).text
-				self.window:hide() 
+				self.window:hide()
 				self.submitCallback( hour, minute, nil )
 			end
 		end)
-	self.minuteMenu:addActionListener('back', self, 
-		function() 
+	self.minuteMenu:addActionListener('back', self,
+		function()
 			self.hourMenu:setStyle('hour')
 			self.minuteMenu:setStyle('minuteUnselected')
 			--next is evil, but not sure how to get style change for a menu the right way, trying various options. Richard?
@@ -278,16 +278,16 @@ function addTimeInputWidgets(self)
 		end)
 
 	if self.ampmMenu then
-		self.ampmMenu:addActionListener('go', self, 
-			function() 
+		self.ampmMenu:addActionListener('go', self,
+			function()
 				local hour   = self.hourMenu:getItem(self.hourMenu:getMiddleIndex()).text
 				local minute = self.minuteMenu:getItem(self.minuteMenu:getMiddleIndex()).text
 				local ampm   = self.ampmMenu:getItem(self.ampmMenu:getMiddleIndex()).text
-				self.window:hide() 
+				self.window:hide()
 				self.submitCallback( hour, minute, ampm )
 			end)
-		self.ampmMenu:addActionListener('back', self, 
-			function() 
+		self.ampmMenu:addActionListener('back', self,
+			function()
 				self.ampmMenu:setStyle('ampmUnselected')
 				self.minuteMenu:setStyle('minute')
 				--next is evil, but not sure how to get style change for a menu the right way, trying various options. Richard?

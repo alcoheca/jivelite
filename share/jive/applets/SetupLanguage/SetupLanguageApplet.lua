@@ -10,7 +10,7 @@ Allows user to select language used in Jive
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 
 =cut
 --]]
@@ -96,7 +96,7 @@ function setupShowSetupLanguage(self, setupNext, helpText)
 
 	local menu = SimpleMenu("menu")
 
-	for _, locale in ipairs(locale:getAllLocales()) do 
+	for _, locale in ipairs(locale:getAllLocales()) do
 		if not locales[locale] then
 			log:warn("unknown lang ", locale)
 		else
@@ -155,14 +155,14 @@ function settingsShow(self, menuItem)
 	local menu = SimpleMenu("menu")
 
 	local group = RadioGroup()
-	for _, locale in ipairs(locale:getAllLocales()) do 
+	for _, locale in ipairs(locale:getAllLocales()) do
 		if not locales[locale] then
 			log:warn("unknown lang ", locale)
 		else
 			local button = RadioButton(
-				"radio", 
-				group, 
-				function() self:setLang(locale) end, 
+				"radio",
+				group,
+				function() self:setLang(locale) end,
 				locale == currentLocale
 			)
 			menu:addItem({
@@ -241,7 +241,7 @@ function setLang(self, choice, next)
 	self.popup:addWidget(Label("text", self:string(stringChoice)))
    	self.popup:show()
 
-	self.task = Task('setLang', self, 
+	self.task = Task('setLang', self,
 			 function(self)
 				 locale:setLocale(choice, true)
 

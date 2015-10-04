@@ -111,7 +111,7 @@ local UNCONNECTING   = "UNCONNECTING"   -- disconnect request sent
 
 =head2 jive.net.Comet(jnt, ip, port, path, name)
 
-Creates A Comet socket named I<name> to interface with the given I<jnt> 
+Creates A Comet socket named I<name> to interface with the given I<jnt>
 (a L<jive.net.NetworkThread> instance). I<name> is used for debugging and
 defaults to "".
 
@@ -367,7 +367,7 @@ _sendPendingRequests = function(self, data)
 			 self.uri,
 			 data
 		)
-		-- always use the long lived connection's (chttp) ip address, otherwise the ip address of rhttp can change from chhtp's. 
+		-- always use the long lived connection's (chttp) ip address, otherwise the ip address of rhttp can change from chhtp's.
 		if DNS:isip(self.chttp.t_tcp.address) then
 			log:debug("caching chttp ip address: ", self.chttp.t_tcp.address, " for: ", self.uri)
 			self.rhttp.cachedIp = self.chttp.t_tcp.address
@@ -737,8 +737,8 @@ _reconnect = function(self)
 		connectionType = 'streaming',
 	},
 	
-	-- Need to include the /meta/subscribe here just in case the one from the 
-	-- /meta/connect was lost (see _connect()) due to a network problem 
+	-- Need to include the /meta/subscribe here just in case the one from the
+	-- /meta/connect was lost (see _connect()) due to a network problem
 	{
 		channel      = '/meta/subscribe',
 		clientId     = self.clientId,
@@ -1014,7 +1014,7 @@ _handleAdvice = function(self, cometRequest)
 	log:info(self, ": handleAdvice state=", self.state)
 
 	if self.state == UNCONNECTED then
-		-- do nothing 
+		-- do nothing
 		return
 	end
 

@@ -10,7 +10,7 @@ Allows user to select different date and time settings
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 
 =cut
 --]]
@@ -96,7 +96,7 @@ function settingsShow(self, menuItem)
 	))
 
 
-	window:addListener(EVENT_WINDOW_POP, 
+	window:addListener(EVENT_WINDOW_POP,
 		function()
 			self:storeSettings()
 		end
@@ -258,8 +258,8 @@ function setDateTimeDefaultFormats(self)
 	
 	-- default to 12h display for some select countries (EN speaking in some countries)
 	-- see http://en.wikipedia.org/wiki/12-hour_clock#Use_by_country & SetupTZApplet.lua
-	if tostring(lang) == 'EN' and ( 
-		string.match(tz, "^America") 
+	if tostring(lang) == 'EN' and (
+		string.match(tz, "^America")
 		or string.match(tz, "^Australia")
 		or string.match(tz, "^Pacific")			-- New Zealand
 --		or string.match(tz, "^Asia/Calcutta")	-- India/Pakistan

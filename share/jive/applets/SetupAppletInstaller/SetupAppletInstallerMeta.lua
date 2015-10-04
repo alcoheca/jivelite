@@ -51,7 +51,7 @@ function configureApplet(self)
 
 	if settings._AUTOUP and settings._LASTVER and settings._LASTVER ~= JIVE_VERSION then
 		Timer(
-			5000, 
+			5000,
 			function() appletManager:callService("appletInstallerMenu", { text = self:string("APPLET_INSTALLER") }, 'auto') end,
 			true
 		):start()

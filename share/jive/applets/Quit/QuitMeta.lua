@@ -60,7 +60,7 @@ function configureApplet(self)
 			iconStyle = 'hm_quit',
 			node = 'home',
 			text = self:string("QUIT"),
-			callback = function() 
+			callback = function()
 				-- disconnect from Player/SqueezeCenter
 				appletManager:callService("disconnectPlayer")
 

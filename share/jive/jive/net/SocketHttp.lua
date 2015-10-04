@@ -88,7 +88,7 @@ end
 
 =head2 jive.net.SocketHttp(jnt, host, port, name)
 
-Creates an HTTP socket named I<name> to interface with the given I<jnt> 
+Creates an HTTP socket named I<name> to interface with the given I<jnt>
 (a L<jive.net.NetworkThread> instance). I<name> is used for debugging and
 defaults to "". I<host> and I<port> are the hostname/IP host and port of the HTTP server.
 
@@ -317,19 +317,19 @@ socket.sinkt["keep-open-non-blocking"] = function(sock)
 		{
 			getfd = function() return sock:getfd() end,
 			dirty = function() return sock:dirty() end
-		}, 
+		},
 		{
 			__call = function(self, chunk, err)
 				log:debug("keep-open-non-blocking sink(", chunk and #chunk, ", ", tostring(err), ", ", tostring(first), ")")
-				if chunk then 
+				if chunk then
 					local res, err
 					-- if send times out, err is 'timeout' and first is updated.
 					res, err, first = sock:send(chunk, first+1)
 					log:debug("keep-open-non-blocking sent - first is ", tostring(first), " returning ", tostring(res), ", " , tostring(err))
 					-- we return the err
 					return res, err
-				else 
-					return 1 
+				else
+					return 1
 				end
 			end
 		}
@@ -550,9 +550,9 @@ end
 
 -- jive-until-close socket source
 -- our "until-close" source, added to the socket namespace so we can use it like any other
--- the code is identical to the one in socket, except we return the closed error when 
--- it happens. The source/sink concept is based on the fact sources are called until 
--- they signal no more data (by returning nil). We can't use that however since the 
+-- the code is identical to the one in socket, except we return the closed error when
+-- it happens. The source/sink concept is based on the fact sources are called until
+-- they signal no more data (by returning nil). We can't use that however since the
 -- pump won't be called in select!
 socket.sourcet["jive-until-closed"] = function(sock, self)
 	local done
@@ -561,18 +561,18 @@ socket.sourcet["jive-until-closed"] = function(sock, self)
 		{
 			getfd = function() return sock:getfd() end,
 			dirty = function() return sock:dirty() end
-		}, 
+		},
 		{
 			__call = function()
 			
-				if done then 
-					return nil 
+				if done then
+					return nil
 				end
 			
 				local chunk, err
 				chunk, err, partial = sock:receive(BLOCKSIZE, partial)
 				
-				if not err then 
+				if not err then
 					return chunk
 				elseif err == "closed" then
 					--close the socket using self
@@ -580,7 +580,7 @@ socket.sourcet["jive-until-closed"] = function(sock, self)
 					done = true
 					return partial, 'done'
 				else -- including timeout
-					return nil, err 
+					return nil, err
 				end
 			end
 		}
@@ -596,11 +596,11 @@ socket.sourcet["jive-by-length"] = function(sock, length)
 		{
 			getfd = function() return sock:getfd() end,
 			dirty = function() return sock:dirty() end
-		}, 
+		},
 		{
 			__call = function()
-				if length <= 0 then 
-					return nil, 'done' 
+				if length <= 0 then
+					return nil, 'done'
 				end
 		
 				local size = math.min(BLOCKSIZE, length)
@@ -609,7 +609,7 @@ socket.sourcet["jive-by-length"] = function(sock, length)
 				chunk, err, partial = sock:receive(size, partial)
 				
 				if err then -- including timeout
-					return nil, err 
+					return nil, err
 				end
 				length = length - string.len(chunk)
 				if length <= 0 then
@@ -635,7 +635,7 @@ socket.sourcet["jive-http-chunked"] = function(sock)
 		{
 			getfd = function() return sock:getfd() end,
 			dirty = function() return sock:dirty() end
-		}, 
+		},
 		{
 			__call = function()
 
@@ -647,14 +647,14 @@ socket.sourcet["jive-http-chunked"] = function(sock)
 
 				if err then
 					log:debug("SocketHttp.jive-http-chunked.source - RETURN err")
-					return nil, err 
+					return nil, err
 				end
 				
 				if step == 1 then
 					-- read size
 					local size = tonumber(string.gsub(chunk, ";.*", ""), 16)
-					if not size then 
-						return nil, "invalid chunk size" 
+					if not size then
+						return nil, "invalid chunk size"
 					end
 					log:debug("SocketHttp.jive-http-chunked.source - size: ", tostring(size))
 			
@@ -757,7 +757,7 @@ end
 -- returns a sink for the request
 local function _getSink(mode, request, customerSink)
 	local f = sinkt[mode]
-	if not f then 
+	if not f then
 		log:error("Unknown mode: ", mode, " - using jive-concat")
 		f = sinkt["jive-concat"]
 	end

@@ -8,7 +8,7 @@ applets.SlimBrowser.DB - Item database.
 
 This object is designed to store and manage the browsing data Jive receives.
 
-Conceptually, this data is a long list of items n1, n2, n3..., which is received by chunks. Each chunk 
+Conceptually, this data is a long list of items n1, n2, n3..., which is received by chunks. Each chunk
 is a table with many properties but of particular interest are:
 - count: indicates the number of items in the long list
 - offset: indicates the first index of the data in the item_obj array
@@ -218,7 +218,7 @@ function getTextIndexes(self)
 		table.insert(tmp, {key = key, index = index})
 	end
 	
-	table.sort(tmp, 
+	table.sort(tmp,
 			function(a,b)
 				return a.index < b.index
 			end

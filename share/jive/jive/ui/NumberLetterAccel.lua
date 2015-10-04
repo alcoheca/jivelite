@@ -74,7 +74,7 @@ function __init(self, switchTimeoutCallback)
 	obj.switchTimeoutCallback = switchTimeoutCallback
 	obj.lastNumberLetterIrCode = nil
 	obj.lastNumberLetterT = nil
-	obj.numberLetterTimer = Timer(NUMBER_LETTER_TIMER_TIME, 
+	obj.numberLetterTimer = Timer(NUMBER_LETTER_TIMER_TIME,
 				function ()
 					obj.currentScrollLetter = nil
 					switchTimeoutCallback()

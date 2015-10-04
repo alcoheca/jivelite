@@ -36,7 +36,7 @@ The timeout was set to 2 minutes which I found in my tests on Jive, Baby and
 Touch not to be necessary to make sure the pipe gets emptied. 10 seconds seem
 to be enough.
 The 10 seconds timeout also makes reconnecting a lot quicker when the network is
-re-established. 
+re-established.
 */
 #define RESOLV_TIMEOUT (10 * 1000) /* 10 seconds (was 2 minutes) */
 
@@ -73,12 +73,12 @@ int inet_aton(const char *cp, struct in_addr *inp)
 
 /* socketpair.c
  * Copyright 2007 by Nathan C. Myers <ncm@cantrip.org>; all rights reserved.
- * This code is Free Software.  It may be copied freely, in original or 
+ * This code is Free Software.  It may be copied freely, in original or
  * modified form, subject only to the restrictions that (1) the author is
  * relieved from all responsibilities for any use for any purpose, and (2)
  * this copyright notice must be retained, unchanged, in its entirety.  If
  * for any reason the author might be held responsible for any consequences
- * of copying or use, license is withheld.  
+ * of copying or use, license is withheld.
  */
 
 int socketpair(int domain, int type, int protocol, SOCKET socks[2])
@@ -95,7 +95,7 @@ int socketpair(int domain, int type, int protocol, SOCKET socks[2])
     }
 
     socks[0] = socks[1] = INVALID_SOCKET;
-    if ((listener = socket(AF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET) 
+    if ((listener = socket(AF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET)
         return SOCKET_ERROR;
 
     memset(&addr, 0, sizeof(addr));
@@ -252,7 +252,7 @@ static int dns_resolver_thread(void *p) {
 				write_str(fd, failed_error);
 				break;
 			case TRY_AGAIN:
-				failed_error = "Try again"; 
+				failed_error = "Try again";
 				failed_timeout = jive_jiffies();
 				write_str(fd, failed_error);
 				break;

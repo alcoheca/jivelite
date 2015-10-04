@@ -81,7 +81,7 @@ function __init(self, style, widgets)
 
 				for _,widget in pairs(obj.widgets) do
 					 if notMouse
-					   or self._mouseEventFocusWidget == widget 
+					   or self._mouseEventFocusWidget == widget
 					   or (not self._mouseEventFocusWidget and widget:mouseInside(event)) then
 						 r = widget:_event(event)
 						 if r ~= EVENT_UNUSED then

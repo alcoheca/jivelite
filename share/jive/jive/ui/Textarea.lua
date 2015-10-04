@@ -329,7 +329,7 @@ function _eventHandler(self, event)
 
 		self.dragOrigin.x, self.dragOrigin.y = nil, nil
 
-		--Hmm, possible bug, itemHeight is always nil!?! supposed to be lineHeight? 
+		--Hmm, possible bug, itemHeight is always nil!?! supposed to be lineHeight?
 		local flickSpeed, flickDirection = self.flick:getFlickSpeed(self.itemHeight)
 
 		if flickSpeed then
@@ -342,7 +342,7 @@ function _eventHandler(self, event)
 		self.sliderDragInProgress = false
 		self.bodyDragInProgress = false
 
-		return EVENT_CONSUME 
+		return EVENT_CONSUME
 	end
 
 	return EVENT_UNUSED
@@ -467,8 +467,8 @@ function handleMenuHeaderWidgetScrollBy(self, scroll, menu)
 
 	local itemShift = menu.topItem -1
 	self.pixelOffsetYHeaderWidget = -1 * itemShift * menu.itemHeight
-	--adjust temporarily to parent while shift is occurring 
-	self:setPixelOffsetY(menu.pixelOffsetY) 
+	--adjust temporarily to parent while shift is occurring
+	self:setPixelOffsetY(menu.pixelOffsetY)
 
 	self:reDraw()
 end

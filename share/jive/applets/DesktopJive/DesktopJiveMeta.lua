@@ -27,7 +27,7 @@ end
 
 
 function defaultSettings(meta)
-	return { 
+	return {
 		uuid = false
 	}
 end

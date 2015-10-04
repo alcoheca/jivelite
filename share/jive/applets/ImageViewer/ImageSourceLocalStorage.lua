@@ -10,7 +10,7 @@ Finds images from removable media
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 
 =cut
 --]]
@@ -107,8 +107,8 @@ function scanFolder(self, folder)
 						elseif lfs.attributes(fullpath, "mode") == "file" then
 							-- check for supported file type
 							if string.find(string.lower(fullpath), "%pjpe*g")
-									or string.find(string.lower(fullpath), "%ppng") 
-									or string.find(string.lower(fullpath), "%pbmp") 
+									or string.find(string.lower(fullpath), "%ppng")
+									or string.find(string.lower(fullpath), "%pbmp")
 									or string.find(string.lower(fullpath), "%pgif") then
 								
 								-- log:info(fullpath)

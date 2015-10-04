@@ -140,7 +140,7 @@ function get(self, key)
 
 	-- unlink from list
 	if entry.prev then
-		entry.prev.next = entry.next 
+		entry.prev.next = entry.next
 	end
 	if entry.next then
 		entry.next.prev = entry.prev

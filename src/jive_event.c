@@ -434,7 +434,7 @@ int jiveL_event_tostring(lua_State* L) {
 	case JIVE_EVENT_IR_HOLD:
 		lua_pushfstring(L, "IR_HOLD code=%p", event->u.ir.code);
 		break;
-    
+
 	case JIVE_EVENT_WINDOW_PUSH:
 		lua_pushstring(L, "WINDOW_PUSH");
 		break;

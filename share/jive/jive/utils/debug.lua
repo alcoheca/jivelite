@@ -20,7 +20,7 @@ tables. This modules extends the lua debug module.
  -- Dump a table
  local aTable = {a = 'bla', c = {}}
  debug.dump(aTable)
- 
+
  -- print:
  { --table: 0x11aedd0
    a = "bla",

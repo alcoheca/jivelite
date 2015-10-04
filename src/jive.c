@@ -53,7 +53,7 @@ static lua_State *globalL = NULL;
 
 
 /* lmessage
-** prints a message to std err. pname is optional 
+** prints a message to std err. pname is optional
 */
 static void l_message (const char *pname, const char *msg) {
 
@@ -99,7 +99,7 @@ static void jive_openlibs(lua_State *L) {
 
 #if !defined(WIN32)
 	lua_pushcfunction(L, luaopen_visualizer);
-	lua_call(L, 0, 0); 
+	lua_call(L, 0, 0);
 #endif
 }
 
@@ -152,7 +152,7 @@ static void paths_setup(lua_State *L, char *app) {
 	else {
 		// add working dir + app and resolve
 		getcwd(temp, PATH_MAX+1);
-		strcat(temp, "/");       
+		strcat(temp, "/");
 		strcat(temp, app);
 		realpath(temp, path);
 	}
@@ -244,7 +244,7 @@ static void paths_setup(lua_State *L, char *app) {
 	}
 
 	// pop package table off the stack
-	lua_pop(L, 1); 
+	lua_pop(L, 1);
 
 	free(temp);
 	free(binpath);
@@ -257,7 +257,7 @@ static void paths_setup(lua_State *L, char *app) {
 /******************************************************************************/
 
 /* report
-** prints an error message from the lua stack if any 
+** prints an error message from the lua stack if any
 */
 static int report (lua_State *L, int status) {
 
@@ -290,7 +290,7 @@ static void lstop (lua_State *L, lua_Debug *ar) {
 static void laction (int i) {
 
 	// if another SIGINT happens before lstop
-	// terminate process (default action) 
+	// terminate process (default action)
 	signal(i, SIG_DFL);
 	
 	lua_sethook(globalL, lstop, LUA_MASKCALL | LUA_MASKRET | LUA_MASKCOUNT, 1);
@@ -314,7 +314,7 @@ static int traceback (lua_State *L) {
 	}
 	
 	// pass error message
-	lua_pushvalue(L, 1); 
+	lua_pushvalue(L, 1);
 	
 	// skip this function and traceback
 	lua_pushinteger(L, 2);
@@ -339,7 +339,7 @@ static int getargs (lua_State *L, char **argv, int n) {
 	}
 	
 	// number of arguments to the script
-	// => all arguments minus program name [0] and any other arguments found 
+	// => all arguments minus program name [0] and any other arguments found
 	// before
 	narg = argc - (n + 1);
 	
@@ -369,22 +369,22 @@ static int getargs (lua_State *L, char **argv, int n) {
 */
 static int docall (lua_State *L, int narg, int clear) {
 	int status;
-  
+
 	// get the function index
 	int base = lua_gettop(L) - narg;
-  
+
 	// push traceback function
 	lua_pushcfunction(L, traceback);
-  
+
 	// put it under chunk and args
-	lua_insert(L, base); 
-  
+	lua_insert(L, base);
+
 	signal(SIGINT, laction);
 	status = lua_pcall(L, narg, (clear ? 0 : LUA_MULTRET), base);
 	signal(SIGINT, SIG_DFL);
-  
+
 	// remove traceback function
-	lua_remove(L, base);  
+	lua_remove(L, base);
 
 	return status;
 }
@@ -423,7 +423,7 @@ static int handle_script (lua_State *L, char **argv, int n) {
 
 
 /* Smain
-** used to transfer arguments and status to protected main 
+** used to transfer arguments and status to protected main
 */
 struct Smain {
 	int argc;
@@ -507,11 +507,11 @@ static int pmain (lua_State *L) {
 	lua_gc(L, LUA_GCRESTART, 0);
 
 #ifdef NO_STDIO_REDIRECT
-	/* SDL not redirecting. Instead, put console output in user writable directory - used for Vista, for instance which disallows writing to app dir */ 
+	/* SDL not redirecting. Instead, put console output in user writable directory - used for Vista, for instance which disallows writing to app dir */
 	redirect_stdio();	
 #endif
 
-	/* 
+	/*
 	// do we have an argument? - disabled as we do not want to run alternative scripts, but want to see the arguments
 	if (argv[1] != NULL) {
 		script = 1;
@@ -528,7 +528,7 @@ static int pmain (lua_State *L) {
 }
 
 
-/* main 
+/* main
 */
 int main (int argc, char **argv) {
 	int status;

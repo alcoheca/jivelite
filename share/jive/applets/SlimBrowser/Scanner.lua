@@ -207,7 +207,7 @@ function _updateSelectedTime(self)
 	end
 	local new = math.abs(self.elapsed) + self.delta * accel * POSITION_STEP
 	
-	if new > self.duration then 
+	if new > self.duration then
 		new = self.duration
 	elseif new < 0 then
 		new = 0

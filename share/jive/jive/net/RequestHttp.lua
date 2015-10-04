@@ -19,7 +19,7 @@ by a L<jive.net.SocketHttp>.
      print("received: " .. chunk)
    end
  end
- 
+
  -- create a HTTP socket (see L<jive.net.SocketHttp>)
  local http = jive.net.SocketHttp(jnt, "192.168.1.1", 9000, "slimserver")
 
@@ -267,12 +267,12 @@ end
 -- receives the response headers from the HTTP layer
 function t_setResponseHeaders(self, statusCode, statusLine, headers)
 --	log:debug(
---		"RequestHttp:t_setResponseHeaders(", 
---		self, 
---		": ", 
---		statusCode, 
---		", ", 
---		statusLine, 
+--		"RequestHttp:t_setResponseHeaders(",
+--		self,
+--		": ",
+--		statusCode,
+--		", ",
+--		statusLine,
 --		")"
 --	)
 	

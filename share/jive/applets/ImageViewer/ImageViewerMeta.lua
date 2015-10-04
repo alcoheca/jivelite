@@ -34,7 +34,7 @@ end
 
 
 function registerApplet(meta)
-	jiveMain:addItem(meta:menuItem('appletImageViewer', 'settings', "IMAGE_VIEWER", 
+	jiveMain:addItem(meta:menuItem('appletImageViewer', 'settings', "IMAGE_VIEWER",
 		function(applet, ...) applet:openImageViewer(...) end, 58, nil, "hm_appletImageViewer"))
 	
 	meta:registerService("registerRemoteScreensaver")

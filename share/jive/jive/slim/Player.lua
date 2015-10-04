@@ -28,7 +28,7 @@ Notifications:
  playerNeedsUpgrade
  playerTitleStatus
  playerLoaded (player and server connected and initial home menu from server has been loaded)
- 
+
 =head1 FUNCTIONS
 
 =cut
@@ -148,7 +148,7 @@ function isLocal(self)
 	return false
 end
 
---class method, returns the delay used before which consecutive commands like volume will be suppressed 
+--class method, returns the delay used before which consecutive commands like volume will be suppressed
 function getRateLimitTime(self)
 	return MIN_KEY_INT
 end
@@ -241,7 +241,7 @@ end
 local function _formatShowBrieflyText(msg)
 	log:debug("_formatShowBrieflyText")
 
-	-- showBrieflyText needs to deal with both \n instructions within a string 
+	-- showBrieflyText needs to deal with both \n instructions within a string
 	-- and also adding newlines between table elements
 
 	-- table msg needs to have elements of only strings/numbers so table.concat will work
@@ -384,7 +384,7 @@ function updatePlayerInfo(self, slimServer, playerInfo, useSequenceNumber, isSeq
 	
 	-- ignore updates from a different server if the player
 	-- is not connected to it
-	if self.slimServer ~= slimServer 
+	if self.slimServer ~= slimServer
 		and tonumber(playerInfo.connected) ~= 1 then
 		return
 	end
@@ -411,7 +411,7 @@ function updatePlayerInfo(self, slimServer, playerInfo, useSequenceNumber, isSeq
 	self.info.needsUpgrade = tonumber(playerInfo.player_needs_upgrade) == 1
 	self.info.isUpgrading = tonumber(playerInfo.player_is_upgrading) == 1
 	self.info.pin = tostring(playerInfo.pin)
-	self.info.digitalVolumeControl = tonumber(playerInfo.digital_volume_control) 
+	self.info.digitalVolumeControl = tonumber(playerInfo.digital_volume_control)
 
 	self.lastSeen = Framework:getTicks()
 
@@ -1054,7 +1054,7 @@ function onStage(self)
 		function(event)
 
 			if (event:getType() & EVENT_MOUSE_ALL) > 0 then
-				return hideAction(self) 
+				return hideAction(self)
 			end
 
 			local prev = self.mixedPopup.window:getLowerWindow()
@@ -1071,7 +1071,7 @@ function onStage(self)
 		function(event)
 
 			if (event:getType() & EVENT_MOUSE_ALL) > 0 then
-				return hideAction(self) 
+				return hideAction(self)
 			end
 
 			local prev = self.popupInfo.window:getLowerWindow()
@@ -1211,7 +1211,7 @@ function _process_status(self, event)
 
 	if self.state.mode ~= oldState.mode then
 		-- self.mode is set immedidately by togglePause and stop methods to give immediate user feedback in e.g. iconbar
-		-- getPlayerMode method uses self.mode not self.state.mode, so we need to set self.mode again here to be certain it's correct                                          
+		-- getPlayerMode method uses self.mode not self.state.mode, so we need to set self.mode again here to be certain it's correct
 		log:debug('notify_playerModeChange')
 		self.mode = self.state.mode
 		self.jnt:notify('playerModeChange', self, self.state.mode)
@@ -1289,7 +1289,7 @@ function _process_status(self, event)
 				--update local volume so that it is persisted locally (actual volume will have already been changed by audg sub)
 				if serverVolume == 0 and self:getVolume() and self:getVolume() < 0 then
 					--When muted, server sends a 0 vol, ignore it
-					self.state["mixer volume"] = oldState["mixer volume"] 
+					self.state["mixer volume"] = oldState["mixer volume"]
 				else
 					-- only persist the state here - the actual volume is changed with audg
 					-- (we are effectively casting a Player to a LocalPlayer here, on the basis of useSequenceNumber;
@@ -1569,7 +1569,7 @@ function isUpgrading(self)
 end
 
 -- play
--- 
+--
 function play(self)
 	log:debug("Player:play()")
 
@@ -1585,7 +1585,7 @@ end
 
 
 -- stop
--- 
+--
 function stop(self)
 	log:debug("Player:stop()")
 	self:call({'mode', 'stop'})
@@ -1631,7 +1631,7 @@ end
 
 
 -- button
--- 
+--
 function button(self, buttonName)
 	local now = Framework:getTicks()
 	if self.buttonTo == nil or self.buttonTo < now then

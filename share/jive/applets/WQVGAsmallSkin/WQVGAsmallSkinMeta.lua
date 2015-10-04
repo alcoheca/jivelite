@@ -2,7 +2,7 @@
 --[[
 =head1 NAME
 
-applets.WQVGAsmallSkin.WQVGAsmallSkinMeta 
+applets.WQVGAsmallSkin.WQVGAsmallSkinMeta
 
 =head1 DESCRIPTION
 

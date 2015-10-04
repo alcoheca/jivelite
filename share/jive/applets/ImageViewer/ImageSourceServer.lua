@@ -10,7 +10,7 @@ Reads image list from SC or SN, currently just continuous photo streams, not fix
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 
 =cut
 --]]
@@ -260,7 +260,7 @@ function requestImage(self, imageData)
 				self:_updateImageDataHistory(imageData)
 			elseif err then
 				self.image = nil
-				self.error = self.applet:string("IMAGE_VIEWER_HTTP_ERROR_IMAGE") 
+				self.error = self.applet:string("IMAGE_VIEWER_HTTP_ERROR_IMAGE")
 				log:warn("error loading picture")
 			end
 			self.imgReady = true
@@ -286,7 +286,7 @@ end
 function updateLoadingIcon(self)
 	local icon = Icon("icon_photo_loading")
 
-	if self.serverData.appParameters and self.serverData.appParameters.iconId 
+	if self.serverData.appParameters and self.serverData.appParameters.iconId
 		and not string.match(self.serverData.appParameters.iconId, "MyApps") then
 
 		-- don't display the My Apps icon in case we're browsing flickr/facebook through the My Apps menu

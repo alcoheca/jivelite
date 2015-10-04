@@ -6,7 +6,7 @@ jive.ui.Keyboard - A keyboard widget.
 
 =head1 DESCRIPTION
 
-A keyboard widget, extends L<jive.ui.Widget>, it is a container for other widgets, primarily buttons. 
+A keyboard widget, extends L<jive.ui.Widget>, it is a container for other widgets, primarily buttons.
 
 =head1 SYNOPSIS
 
@@ -107,145 +107,145 @@ end
 
 
 function _predefinedKeyboards(self)
-		local emailKeyboardBottomRow = { 
-					self:_switchKeyboardButton('emailNumeric', keyboardButtonText.emailNumeric), 
+		local emailKeyboardBottomRow = {
+					self:_switchKeyboardButton('emailNumeric', keyboardButtonText.emailNumeric),
 					{ keyWidth = 0, text = '.' },
 					{ keyWidth = 0, text = '@' },
 					'_', '-',
-					self:_go() 
+					self:_go()
 		}
-		self.keyboards = { 
-		['qwertyUpper']  = { 
+		self.keyboards = {
+		['qwertyUpper']  = {
 				{ 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P' },
 				{ self:_spacer(), 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', self:_spacer()  },
 				{ self:_shiftKey('qwerty'), 'Z', 'X', 'C', 'V', 'B', 'N', 'M',
 				 self:_arrow('left', 'middle'), self:_arrow('right', 'right'), },
 				{
-					self:_switchKeyboardButton('numeric', keyboardButtonText.numeric, 92, 'qwerty'), 
+					self:_switchKeyboardButton('numeric', keyboardButtonText.numeric, 92, 'qwerty'),
 					self:_spaceBar(),
 					self:_go(92),
 				},
 		},
-		['qwertyUpper_FR']  = { 
+		['qwertyUpper_FR']  = {
 				{ 'A', 'Z', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P' },
 				{ 'Q', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M'  },
-				{ 
-					self:_shiftKey('qwerty_FR'), self:_spacer(), 'W', 'X', 'C', 'V', 'B', 'N', 
+				{
+					self:_shiftKey('qwerty_FR'), self:_spacer(), 'W', 'X', 'C', 'V', 'B', 'N',
 					self:_arrow('left', 'middle'), self:_arrow('right', 'right'), },
 				{
-					self:_switchKeyboardButton('numeric', keyboardButtonText.numeric, 92, 'qwerty'), 
+					self:_switchKeyboardButton('numeric', keyboardButtonText.numeric, 92, 'qwerty'),
 					self:_spaceBar(),
 					self:_go(92),
 				},
 		},
-		['qwertyUpper_DE']  = { 
+		['qwertyUpper_DE']  = {
 				{ 'Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P' },
 				{ self:_spacer(), 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', self:_spacer()  },
-				{ 
-					self:_shiftKey('qwerty'), 'Y', 'X', 'C', 'V', 'B', 'N', 'M', 
+				{
+					self:_shiftKey('qwerty'), 'Y', 'X', 'C', 'V', 'B', 'N', 'M',
 					self:_arrow('left', 'middle'), self:_arrow('right', 'right'), },
 				{
-					self:_switchKeyboardButton('numeric', keyboardButtonText.numeric, 92, 'qwerty'), 
+					self:_switchKeyboardButton('numeric', keyboardButtonText.numeric, 92, 'qwerty'),
 					self:_spaceBar(),
 					self:_go(92),
 				},
 		},
-		['qwerty']  = { 
+		['qwerty']  = {
 				{ 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' },
 				{ self:_spacer(), 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', self:_spacer() },
-				{ 
-					self:_shiftKey('qwertyUpper', 'qwerty'), 'z', 'x', 'c', 'v', 'b', 'n', 'm', 
+				{
+					self:_shiftKey('qwertyUpper', 'qwerty'), 'z', 'x', 'c', 'v', 'b', 'n', 'm',
 					self:_arrow('left', 'middle'), self:_arrow('right', 'right'), },
 				{
-					self:_switchKeyboardButton('numeric', keyboardButtonText.numeric, 92, 'qwerty'), 
+					self:_switchKeyboardButton('numeric', keyboardButtonText.numeric, 92, 'qwerty'),
 					self:_spaceBar(),
 					self:_go(92),
 				},
 		},
-		['qwerty_DE']  = { 
+		['qwerty_DE']  = {
 				{ 'q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p' },
 				{ self:_spacer(), 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', self:_spacer() },
-				{ 
-					self:_shiftKey('qwertyUpper_DE', 'qwerty_DE'), 'y', 'x', 'c', 'v', 'b', 'n', 'm', 
+				{
+					self:_shiftKey('qwertyUpper_DE', 'qwerty_DE'), 'y', 'x', 'c', 'v', 'b', 'n', 'm',
 					self:_arrow('left', 'middle'), self:_arrow('right', 'right'), },
 				{
-					self:_switchKeyboardButton('numeric', keyboardButtonText.numeric, 92, 'qwerty'), 
+					self:_switchKeyboardButton('numeric', keyboardButtonText.numeric, 92, 'qwerty'),
 					self:_spaceBar(),
 					self:_go(92),
 				},
 		},
-		['qwerty_FR']  = { 
+		['qwerty_FR']  = {
 				{ 'a', 'z', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' },
 				{ 'q', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm' },
 				{
-					self:_shiftKey('qwertyUpper_FR', 'qwerty_FR'), self:_spacer(), 'w', 'x', 'c', 'v', 'b', 'n', 
-					self:_arrow('left', 'middle'), self:_arrow('right', 'right'), 
+					self:_shiftKey('qwertyUpper_FR', 'qwerty_FR'), self:_spacer(), 'w', 'x', 'c', 'v', 'b', 'n',
+					self:_arrow('left', 'middle'), self:_arrow('right', 'right'),
 				},
 				{
-					self:_switchKeyboardButton('numeric', keyboardButtonText.numeric, 92, 'qwerty'), 
+					self:_switchKeyboardButton('numeric', keyboardButtonText.numeric, 92, 'qwerty'),
 					self:_spaceBar(),
 					self:_go(92),
 				},
 		},
 
-		['email']  = { 
+		['email']  = {
 				{ 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' },
 				{ self:_spacer(), 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', self:_spacer() },
-				{ self:_shiftKey('emailUpper', 'email'), 'z', 'x', 'c', 'v', 'b', 'n', 'm', 
+				{ self:_shiftKey('emailUpper', 'email'), 'z', 'x', 'c', 'v', 'b', 'n', 'm',
 					self:_arrow('left', 'middle'),
 					self:_arrow('right', 'right'),
 				},
 				emailKeyboardBottomRow
 		} ,
-		['emailUpper']  = { 
+		['emailUpper']  = {
 				{ 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P' },
 				{ self:_spacer(), 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', self:_spacer() },
-				{ self:_shiftKey('email'), 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 
+				{ self:_shiftKey('email'), 'Z', 'X', 'C', 'V', 'B', 'N', 'M',
 					self:_arrow('left', 'middle'),
 					self:_arrow('right', 'right'),
 				},
 				emailKeyboardBottomRow
 		} ,
-		['email_DE']  = { 
+		['email_DE']  = {
 				{ 'q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p' },
 				{ self:_spacer(), 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', self:_spacer() },
-				{ self:_shiftKey('emailUpper_DE', 'email_DE'), 'y', 'x', 'c', 'v', 'b', 'n', 'm', 
+				{ self:_shiftKey('emailUpper_DE', 'email_DE'), 'y', 'x', 'c', 'v', 'b', 'n', 'm',
 					self:_arrow('left', 'middle'),
 					self:_arrow('right', 'right'),
 				},
 				emailKeyboardBottomRow
 		} ,
-		['emailUpper_DE']  = { 
+		['emailUpper_DE']  = {
 				{ 'Q', 'W', 'E', 'R', 'T', 'Z', 'U', 'I', 'O', 'P' },
 				{ self:_spacer(), 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', self:_spacer() },
-				{ self:_shiftKey('email_DE'), 'Y', 'X', 'C', 'V', 'B', 'N', 'M', 
+				{ self:_shiftKey('email_DE'), 'Y', 'X', 'C', 'V', 'B', 'N', 'M',
 					self:_arrow('left', 'middle'),
 					self:_arrow('right', 'right'),
 				},
 				emailKeyboardBottomRow
 		} ,
-		['email_FR']  = { 
+		['email_FR']  = {
 				{ 'a', 'z', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' },
 				{ 'q', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm' },
-				{ self:_shiftKey('emailUpper_FR', 'email_FR'), self:_spacer(), 'w', 'x', 'c', 'v', 'b', 'n', 
+				{ self:_shiftKey('emailUpper_FR', 'email_FR'), self:_spacer(), 'w', 'x', 'c', 'v', 'b', 'n',
 					self:_arrow('left', 'middle'),
 					self:_arrow('right', 'right'),
 				},
 				emailKeyboardBottomRow
 		} ,
-		['emailUpper_FR']  = { 
+		['emailUpper_FR']  = {
 				{ 'A', 'Z', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P' },
 				{ 'Q', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M' },
-				{ self:_shiftKey('email_FR'), self:_spacer(), 'W', 'X', 'C', 'V', 'B', 'N', 
+				{ self:_shiftKey('email_FR'), self:_spacer(), 'W', 'X', 'C', 'V', 'B', 'N',
 					self:_arrow('left', 'middle'),
 					self:_arrow('right', 'right'),
 				},
 				emailKeyboardBottomRow
 		} ,
-		['emailNumeric'] = { 
+		['emailNumeric'] = {
 				{ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' },
 				{ '$', '+', '~', '.', '!', '#', '%', '&', "'", '*' },
-				{ '/', '=', '?', '^', '`', '{', '|', '}', 
+				{ '/', '=', '?', '^', '`', '{', '|', '}',
 					self:_arrow('left', 'middle'),
 					self:_arrow('right', 'right'),
 				},
@@ -254,41 +254,41 @@ function _predefinedKeyboards(self)
 					{ keyWidth = 0, text = '.' },
 					{ keyWidth = 92, text = '@' },
 					'_', '-',
-					self:_go() 
+					self:_go()
 				},
 		},
-		['hex']     = { 
+		['hex']     = {
 				{ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' } ,
 				{ 'A', 'B', 'C', 'D', 'E', 'F', self:_arrow('left', 'bottom'), self:_arrow('right', 'bottom'), self:_go() },
 		},
-		['ip']     = { 
+		['ip']     = {
 				{ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' } ,
 				{ '.', self:_spacer(), self:_arrow('left', 'bottom'), self:_arrow('right', 'bottom'), self:_go(92) },
 		},
-		['numeric'] = { 
+		['numeric'] = {
 				{ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' },
 				{ '.', '-', '+', '/', '=', '_', '@', '#', '$', '%' },
-				{ 
+				{
 					self:_switchKeyboardButton('numericShift', keyboardButtonText.numericMore, 92),
-					':', '&', ',', '?', '!', '*', 
-					self:_arrow('left', 'middle'), self:_arrow('right', 'right'), 
+					':', '&', ',', '?', '!', '*',
+					self:_arrow('left', 'middle'), self:_arrow('right', 'right'),
 				},
 				{
-					self:_switchKeyboardButton('qwerty', keyboardButtonText.qwerty, 92), 
+					self:_switchKeyboardButton('qwerty', keyboardButtonText.qwerty, 92),
 					self:_spaceBar(),
 					self:_go(92),
 				},
 		},
-		['numericShift'] = { 
+		['numericShift'] = {
 				{ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' },
 				{ ';', '"', '`', "'", '~', '^', '\\', '|', '[', ']' },
-				{ 
+				{
 					self:_switchKeyboardButton('numeric', keyboardButtonText.numericBack, 92),
-					'<', '>', '{', '}', '(', ')', 
+					'<', '>', '{', '}', '(', ')',
 					self:_spacer(), self:_arrow('left', 'middle'), self:_arrow('right', 'right')
 				},
 				{
-					self:_switchKeyboardButton('qwerty', keyboardButtonText.qwerty, 92), 
+					self:_switchKeyboardButton('qwerty', keyboardButtonText.qwerty, 92),
 					self:_spaceBar(),
 					self:_go(92),
 				},
@@ -328,13 +328,13 @@ function _layout(self)
 
 	for i, row in ipairs(self.keyboard) do
 		local rowInfo = self.keyInfo[i]
-		local spacers = 0 
+		local spacers = 0
 		local nonSpacerKeyWidth = 0
 		-- first pass for non-spacer nonSpacerKeyWidth
 		for j, key in ipairs(row) do
 			local style = key:getStyle()
 			local keyWidth = default.width
-			if rowInfo[j].keyWidth == 0 then 
+			if rowInfo[j].keyWidth == 0 then
 				spacers = spacers + 1
 			else
 				if rowInfo[j].keyWidth then
@@ -352,7 +352,7 @@ function _layout(self)
 		for j, key in ipairs(row) do
 			local style = key:getStyle()
 			local keyWidth
-			if rowInfo[j].keyWidth == 0 then 
+			if rowInfo[j].keyWidth == 0 then
 				numberOfSpacers = numberOfSpacers + 1
 				if numberOfSpacers == 1 and extraSpacerPixels then
 					keyWidth = spacerWidth + extraSpacerPixels
@@ -413,7 +413,7 @@ function _layout(self)
 		end
 
 		-- on to the next row: add some vertical pixels to our key positioning
-		y = y + default.height 
+		y = y + default.height
 	end
 
 end
@@ -544,30 +544,30 @@ function _buttonsFromChars(self, charTable)
 				label    = Label(keyStyle, v.text)
 			end
 			-- XXX, v.callback, if used, not compatible with self.last
-			local callback = v.callback or 
+			local callback = v.callback or
 					function()
 						local e = Event:new(EVENT_CHAR_PRESS, string.byte(v.text))
-						Framework:dispatchEvent(nil, e) 
+						Framework:dispatchEvent(nil, e)
 						if self.last then
 							self:setKeyboard(self.last)
 							self.last = nil
 						end
-						return EVENT_CONSUME 
+						return EVENT_CONSUME
 					end
 			button   = Button(label, callback)
 			info = v
 		else
 			local label  = Label("key", v)
 			button = Button(
-					label, 
+					label,
 					function()
 						local e = Event:new(EVENT_CHAR_PRESS, string.byte(v))
-						Framework:dispatchEvent(nil, e) 
+						Framework:dispatchEvent(nil, e)
 						if self.last then
 							self:setKeyboard(self.last)
 							self.last = nil
 						end
-						return EVENT_CONSUME 
+						return EVENT_CONSUME
 					end
 			)
 		end
@@ -593,7 +593,7 @@ function _arrow(self, direction, position, keyWidth)
 		keyWidth = keyWidth,
 		callback = function()
 			Framework:pushAction(cursorAction)
-			return EVENT_CONSUME 
+			return EVENT_CONSUME
 		end,
 	}
 end
@@ -612,9 +612,9 @@ function _macroKeyButton(self, keyText, keyWidth)
 				local stringTable = string.split('', keyText)
 				for _, v in ipairs(stringTable) do
 					local e = Event:new(EVENT_CHAR_PRESS, string.byte(v))
-					Framework:dispatchEvent(nil, e) 
+					Framework:dispatchEvent(nil, e)
 				end
-				return EVENT_CONSUME 
+				return EVENT_CONSUME
 			end,
 	}
 end
@@ -637,7 +637,7 @@ function _switchKeyboardButton(self, kbType, keyText, keyWidth)
 			self:setKeyboard(keyboardType)
 			-- unset any one key shift behavior if a switch keyboard button is hit directly
 			self.last = nil
-			return EVENT_CONSUME 
+			return EVENT_CONSUME
 		end
 	}
 end
@@ -656,8 +656,8 @@ function _go(self, keyWidth)
 				return
 			end
 
-			Framework:pushAction("finish_operation") 
-			return EVENT_CONSUME 
+			Framework:pushAction("finish_operation")
+			return EVENT_CONSUME
 		end,
 		inputUpdated = function(label)
 			if self.textinput:isValid() then
@@ -701,7 +701,7 @@ function _shiftKey(self, switchTo, switchBack)
 			else
 				self.last = nil
 			end
-			return EVENT_CONSUME 
+			return EVENT_CONSUME
 		end
 	}
 end
@@ -717,8 +717,8 @@ function _spaceBar(self, keyWidth)
 		keyWidth = keyWidth,
 		callback = function()
 			local e = Event:new(EVENT_CHAR_PRESS, string.byte(' '))
-			Framework:dispatchEvent(nil, e) 
-			return EVENT_CONSUME 
+			Framework:dispatchEvent(nil, e)
+			return EVENT_CONSUME
 		end
 	}
 end

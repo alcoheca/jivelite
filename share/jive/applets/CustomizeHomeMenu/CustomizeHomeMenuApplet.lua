@@ -10,7 +10,7 @@ This applet is to allow for a user to customize what items are displayed/hidden 
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 
 =cut
 --]]
@@ -265,7 +265,7 @@ function homeMenuItemContextMenu(self, item)
 		node = item.node
 	end
 
-	-- this is for suppressing actions that don't make sense in context, 
+	-- this is for suppressing actions that don't make sense in context,
 	-- e.g. move to top when already at top
 	local nodeMenu = jiveMain:getNodeMenu(node)
 	local itemIdx  = nodeMenu:getIdIndex(item.id)
@@ -340,7 +340,7 @@ function homeMenuItemContextMenu(self, item)
 end
 
 
--- many of the UI functions of repositioning items work better 
+-- many of the UI functions of repositioning items work better
 -- if there's a small delay before execution so the user sees them happening
 function _timedExec(self, func, delay)
 

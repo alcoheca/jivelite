@@ -26,7 +26,7 @@ local math                   = require("math")
 local table                  = require("jive.utils.table")
 local string                 = require("string")
 local json                   = require("cjson")
-                             
+
 local Applet                 = require("jive.Applet")
 local System                 = require("jive.System")
 local Player                 = require("jive.slim.Player")
@@ -139,7 +139,7 @@ local styleMap = {
 --==============================================================================
 
 
--- Forward declarations 
+-- Forward declarations
 local _newDestination
 local _actionHandler
 
@@ -259,7 +259,7 @@ local function _priorityAssign(key, defaultValue, ...)
 	for i=1, select('#', ...) do
 		local v = select(i, ...)
 --		log:debug(v)
-		if v then 
+		if v then
 			local res = v[key]
 			if res then return res end
 		end
@@ -290,7 +290,7 @@ local function _nowPlayingButton(self, absolute)
 			return EVENT_CONSUME
 		end,
 		function()
-			Framework:pushAction("title_right_hold") 
+			Framework:pushAction("title_right_hold")
 			return EVENT_CONSUME
 		end,
 		function()
@@ -418,15 +418,15 @@ local function _stepLockHandler(step, loadedCallback, skipMenuLock)
 end
 
 
--- skipMenuLock is given as true when no lock treatment is needed on the menu 
+-- skipMenuLock is given as true when no lock treatment is needed on the menu
 -- (e.g., for when _pushToWindow is being used outside a menu like in titlebar CM touch button)
 local function _pushToNewWindow(step, skipMenuLock)
 	_stepLockHandler(
-		step,  
+		step,
 		function()
 			_pushStep(step)
 			step.window:show()
-		end, 
+		end,
 		skipMenuLock
 	)
 end
@@ -469,7 +469,7 @@ local function _newWindowSpec(db, item, isContextMenu)
 		["text"]             = _priorityAssign('text',       item["text"],    iWindow, bWindow),
 		["icon-id"]          = _priorityAssign('icon-id',    item["icon-id"], iWindow, bWindow),
 		["icon"]             = _priorityAssign('icon',       item["icon"],    iWindow, bWindow),
-	} 
+	}
 
 end
 
@@ -533,10 +533,10 @@ local function _checkboxItem(item, db)
 				log:debug("checkbox updated: ", checkboxFlag)
 				if (checkboxFlag) then
 					log:info("ON: ", checkboxFlag)
-					_actionHandler(nil, nil, db, nil, nil, 'on', item) 
+					_actionHandler(nil, nil, db, nil, nil, 'on', item)
 				else
 					log:info("OFF: ", checkboxFlag)
-					_actionHandler(nil, nil, db, nil, nil, 'off', item) 
+					_actionHandler(nil, nil, db, nil, nil, 'off', item)
 				end
 			end,
 			checkboxFlag == 1
@@ -555,9 +555,9 @@ local function _choiceItem(item, db)
 		item["_jive_button"] = Choice(
 			"choice",
 			item['choiceStrings'],
-			function(_, index) 
-				log:info('Callback has been called: ', index) 
-				_actionHandler(nil, nil, db, nil, nil, 'do', item, index) 
+			function(_, index)
+				log:info('Callback has been called: ', index)
+				_actionHandler(nil, nil, db, nil, nil, 'do', item, index)
 			end,
 			choiceFlag
 		)
@@ -574,9 +574,9 @@ local function _radioItem(item, db)
 		item["_jive_button"] = RadioButton(
 			"radio",
 			db:getRadioGroup(),
-			function() 
-				log:info('Callback has been called') 
-				_actionHandler(nil, nil, db, nil, nil, 'do', item) 
+			function()
+				log:info('Callback has been called')
+				_actionHandler(nil, nil, db, nil, nil, 'do', item)
 			end,
 			radioFlag == 1
 		)
@@ -589,7 +589,7 @@ end
 -- updates or generates a label cum decoration in the given labelStyle
 local function _decoratedLabel(group, labelStyle, item, step, menuAccel)
 	local db = step.db
-	local windowStyle = db:windowStyle() 
+	local windowStyle = db:windowStyle()
 
 	-- if item is a windowSpec, then the icon is kept in the spec for nothing (overhead)
 	-- however it guarantees the icon in the title is not shared with (the same) icon in the menu.
@@ -607,9 +607,9 @@ local function _decoratedLabel(group, labelStyle, item, step, menuAccel)
 	if not group then
 
 		if labelStyle == 'title' then
-			group = Group(labelStyle, { 
+			group = Group(labelStyle, {
 				text = Label("text", ""),
-				icon = Icon("icon"), 
+				icon = Icon("icon"),
 				lbutton = _backButton(),
 				rbutton = _nowPlayingButton(),
 			})
@@ -618,8 +618,8 @@ local function _decoratedLabel(group, labelStyle, item, step, menuAccel)
 			textarea:setHideScrollbar(true)
 			textarea:setIsMenuChild(true)
 			group = Group(labelStyle, {
-				icon  = Icon("icon"), 
-				text  = textarea, 
+				icon  = Icon("icon"),
+				text  = textarea,
 				arrow = Icon('arrow'),
 				check = Icon('check'),
 			})
@@ -630,9 +630,9 @@ local function _decoratedLabel(group, labelStyle, item, step, menuAccel)
 			--label never changes the group size, so optimize it with layoutRoot, layout won't trickle up the chain now
 			textLabel.layoutRoot = true
 
-			group = Group(labelStyle, { 
-				icon = Icon("icon"), 
-				text = textLabel, 
+			group = Group(labelStyle, {
+				icon = Icon("icon"),
+				text = textLabel,
 				arrow = Icon('arrow'),
 				check = Icon('check'),
 			})
@@ -640,7 +640,7 @@ local function _decoratedLabel(group, labelStyle, item, step, menuAccel)
 	end
 
 	if item then
-		-- special case here. windows that use Textareas for their text widget have a 
+		-- special case here. windows that use Textareas for their text widget have a
 		-- + handler for bringing up a context menu window that has the entirety of the text
 		if useTextArea then
 			local moreAction = function()
@@ -984,8 +984,8 @@ local function _addHelpButton(self, help, setupWindow, menu)
 			nowPlaying = _invisibleButton()
 		end
 		window:setTitleWidget(
-			Group('title', { 
-				text = Label("text", titleText), 
+			Group('title', {
+				text = Label("text", titleText),
 				lbutton = _backButton(),
 				rbutton = nowPlaying,
 			})	
@@ -1235,7 +1235,7 @@ local function _browseSink(step, chunk, err)
 		return
 	end
 
-	-- function to perform when the data is loaded? 
+	-- function to perform when the data is loaded?
 	if step.loaded then
 		step.loaded()
 		step.loaded = nil
@@ -1287,7 +1287,7 @@ local function _browseSink(step, chunk, err)
 
 		-- avoid infinite request loop on count == 0
 		elseif step.menu and data and data.count and tonumber(data.count) == 0 then
-			-- this will render a blank menu, which is typically undesirable 
+			-- this will render a blank menu, which is typically undesirable
 			-- but we don't want to reach the next clause
 			-- count == 0 responses should not be typical
 
@@ -1401,9 +1401,9 @@ local function _browseSink(step, chunk, err)
 						nowPlayingButton = _nowPlayingButton()
 					end
 
-					local newTitleWidget = 
-						Group('title', { 
-							text = Label("text", titleText), 
+					local newTitleWidget =
+						Group('title', {
+							text = Label("text", titleText),
 							icon = titleIcon,
 							lbutton = backButton,
 							rbutton = nowPlayingButton,
@@ -1561,7 +1561,7 @@ function _goSearchAction()
 --	else
 		_goMenuTableItem("globalSearch")
 --		_goMenuTableItem("myMusicSearch")
---	end                                            
+--	end
 
 	return EVENT_CONSUME
 end
@@ -1880,7 +1880,7 @@ _actionHandler = function(menu, menuItem, db, dbIndex, event, actionName, item, 
 		-- special cases for go action:
 		if actionName == 'go' then
 			
-			-- check first for a hierarchical menu or a input to perform 
+			-- check first for a hierarchical menu or a input to perform
 			if item['count'] or (item['input'] and not item['_inputDone']) then
 				log:debug("_actionHandler(", actionName, "): hierachical or input")
 
@@ -1909,7 +1909,7 @@ _actionHandler = function(menu, menuItem, db, dbIndex, event, actionName, item, 
 				appletManager:callService(item.actions.go.localservice, { text = item.text })
 				return EVENT_CONSUME
 			end
-       
+
 
 			-- check for a 'do' action (overrides a straight 'go')
 			-- actionName is corrected below!!
@@ -1956,7 +1956,7 @@ _actionHandler = function(menu, menuItem, db, dbIndex, event, actionName, item, 
 		setSelectedIndex = tonumber(setSelectedIndex)
 
 		-- in the presence of a setSelectedIndex directive default to nextWindow = 'refresh' if nothing is set
-		if setSelectedIndex and not nextWindow then 
+		if setSelectedIndex and not nextWindow then
 			nextWindow = 'refresh'
 		end
 
@@ -2132,7 +2132,7 @@ _actionHandler = function(menu, menuItem, db, dbIndex, event, actionName, item, 
 				-- context menu handler
 				elseif actionName == 'more' or
 					actionName == "add" and (item['addAction'] == 'more' or
-					-- using addAction is temporary to ensure backwards compatibility 
+					-- using addAction is temporary to ensure backwards compatibility
 					-- until all 'add' commands are removed in SC in favor of 'more'
 					_safeDeref(chunk, 'base', 'addAction') == 'more') or
 					isContextMenu then
@@ -2244,8 +2244,8 @@ end
 
 -- map from a key to an actionName
 local _keycodeActionName = {
-	[KEY_VOLUME_UP] = 'volup', 
-	[KEY_VOLUME_DOWN] = 'voldown', 
+	[KEY_VOLUME_UP] = 'volup',
+	[KEY_VOLUME_DOWN] = 'voldown',
 	[KEY_FWD]   = 'fwd',
 	[KEY_REW]   = 'rew',
 }
@@ -2275,7 +2275,7 @@ local _actionToActionName = {
 --				  'inputDone'
 
 -- _browseMenuListener
--- called 
+-- called
 local function _browseMenuListener(menu, step, menuItem, dbIndex, event)
 	local db = step.db
 
@@ -2585,7 +2585,7 @@ local function _browseInput(window, item, db, inputSpec, last, timeFormat)
 
 	-- create a text input
 	local input = Textinput(
-		"textinput", 
+		"textinput",
 		inputValue,
 		function(_, value)
 			_lastInput = tostring(value)
@@ -2678,7 +2678,7 @@ _newDestination = function(origin, item, windowSpec, sink, data, containerContex
 	log:debug("_newDestination():")
 	log:debug(windowSpec)
 
-	-- a DB (empty...) 
+	-- a DB (empty...)
 	local db = DB(windowSpec)
 
 	local window
@@ -2693,8 +2693,8 @@ _newDestination = function(origin, item, windowSpec, sink, data, containerContex
 		-- it will turn the title text into a button in unwanted spots along XMLBrowse trees
 		if containerContextMenu and containerContextMenu.cmd and containerContextMenu.cmd[1] == 'contextmenu' then
 			log:debug('Turn the title text into a button')
-			local titleWidget = Group('title', { 
-					text = Button( 
+			local titleWidget = Group('title', {
+					text = Button(
 						Label("textButton", windowSpec.text),
 						function()
 							local step, sink = _newDestination(_getCurrentStep(), item, _newWindowSpec(db, item, true), _browseSink, containerContextMenu)
@@ -2707,7 +2707,7 @@ _newDestination = function(origin, item, windowSpec, sink, data, containerContex
 	                                        end
 					),
 
-					icon = Icon("icon"), 
+					icon = Icon("icon"),
 					lbutton = _backButton(),
 					rbutton = _nowPlayingButton(),
 			})
@@ -2797,7 +2797,7 @@ _newDestination = function(origin, item, windowSpec, sink, data, containerContex
 		end
 		_stepSetMenuItems(step)
                 step.menu.textIndexHandler = {
-                        getTextIndexes = function ()             
+                        getTextIndexes = function ()
                                 return step.db:getTextIndexes()
                         end,
                         getIndex = function (char)
@@ -2809,9 +2809,9 @@ _newDestination = function(origin, item, windowSpec, sink, data, containerContex
 
                                 return nil
                         end,
-                        getValidChars =  function ()             
+                        getValidChars =  function ()
                                 local validChars = ""
-                                
+
 				for i, wrapper in ipairs(step.db:getTextIndexes()) do
 					validChars = validChars .. wrapper.key
 				end
@@ -3000,7 +3000,7 @@ function squeezeNetworkRequest(self, request, inSetup, successCallback)
 		sinkWrapper =  function(...)
 				sink(...)
 				log:info("Calling successCallback after initial SN request succeeded")
-				--first request is always a welcome screen. return success callback including whether this is an already registered SP 
+				--first request is always a welcome screen. return success callback including whether this is an already registered SP
 				successCallback(squeezenetwork:isSpRegisteredWithSn())
 			end
 	end
@@ -3453,7 +3453,7 @@ local function _statusSink(step, chunk, err)
 		end
 		
 		-- FIXME: this can go away once we dispense of the upgrade messages
-		-- if we have a data.item_loop[1].text == 'READ ME', 
+		-- if we have a data.item_loop[1].text == 'READ ME',
 		-- we've hit the SC upgrade message and shouldn't be dropping it into NOW PLAYING
 		if data.item_loop and data.item_loop[1].text == 'READ ME' then
 			log:debug('This is not a message suitable for the current playlist')
@@ -3510,14 +3510,14 @@ end
 function showPlaylist()
 	if _statusStep then
 
-		-- current playlist should select currently playing item 
+		-- current playlist should select currently playing item
 		-- if there is only one item in the playlist, bring the selected item to top
 		local playerStatus = _player:getPlayerStatus()
-		local playlistSize = _player:getPlaylistSize() 
+		local playlistSize = _player:getPlaylistSize()
 
 
 		if playlistSize == 0 or not playlistSize then
-			if _emptyStep and _emptyStep.window and _emptyStep.window == Window:getTopNonTransientWindow() then 
+			if _emptyStep and _emptyStep.window and _emptyStep.window == Window:getTopNonTransientWindow() then
 			        log:debug("emptyPlaylist already on screen")
 				return EVENT_CONSUME
 			end
@@ -3695,7 +3695,7 @@ function notify_playerPlaylistChange(self, player)
 	-- Bug 17529: Only push to NowPlaying if the playlist now has size, and an emptyStep window currently exists
 	-- in other words, we're moving from an empty playlist (special case NP window that says "Nothing") to a non-empty playlist
 	-- so in this case only, we need to explicitly push to NowPlaying and remove the emptyStep window
-	elseif _player:isPowerOn() and playlistSize and emptyStep and emptyStep.window then 
+	elseif _player:isPowerOn() and playlistSize and emptyStep and emptyStep.window then
 		-- only move into NowPlaying if screensaver is allowed
 		if Window:getTopNonTransientWindow():canActivateScreensaver() then
 			_goNowPlaying(nil, true)
@@ -3832,11 +3832,11 @@ function _attachPlayer(self, player)
 		nil,
 		nil,
 		_newWindowSpec(
-			nil, 
+			nil,
 			{
 				text = _string("SLIMBROWSER_PLAYLIST"),
-				window = { 
-					["menuStyle"] = "playlist", 
+				window = {
+					["menuStyle"] = "playlist",
 				}
 			}
 		),

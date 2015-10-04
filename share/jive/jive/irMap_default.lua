@@ -1,6 +1,6 @@
 -- IR button name to IR code for all Logitech "Squeezebox family" remote controls
 irMap = {}
-irMap["name"] = "Squeeze IR Remotes" 
+irMap["name"] = "Squeeze IR Remotes"
 irMap["map"] = {
 	[0x7689e01f] = "arrow_up",
 	[0x7689b04f] = "arrow_down",

@@ -470,7 +470,7 @@ static int _draw_screen(lua_State *L) {
 	} while (jive_origin != next_jive_origin);
 
 	if (perfwarn.screen) t1 = jive_jiffies();
- 
+
 	/* Widget animations - don't update in a standalone draw as its not the main screen update */
 	if (!standalone_draw) {
 		lua_getfield(L, 1, "animations");
@@ -602,7 +602,7 @@ int jiveL_draw(lua_State *L) {
 	lua_pushcfunction(L, _draw_screen);
 	lua_pushvalue(L, 1);
 	lua_pushvalue(L, 2);
-	lua_pushboolean(L, 1);                 /* draw complete screen without updating animation or dirty regions */ 
+	lua_pushboolean(L, 1);                 /* draw complete screen without updating animation or dirty regions */
 
 	if (lua_pcall(L, 3, 0, 3) != 0) {
 		LOG_WARN(log_ui_draw, "error in draw_screen:\n\t%s\n", lua_tostring(L, -1));
@@ -934,7 +934,7 @@ int jiveL_push_event(lua_State *L) {
 	jive_queue_event(evt);
 
 	return 0;
-} 
+}
 
 int jiveL_event(lua_State *L) {
 	int r = 0;
@@ -1388,7 +1388,7 @@ static void process_timers(lua_State *L) {
 int jiveL_perfwarn(lua_State *L) {
 	/* stack is:
 	 * 1: framework
-	 * 2: table of threshold values, if no entry or 0 warnings are disabled 
+	 * 2: table of threshold values, if no entry or 0 warnings are disabled
 	 */
 
 	if (lua_istable(L, 2)) {
@@ -1481,7 +1481,7 @@ static const struct luaL_Reg textarea_methods[] = {
 };
 
 static const struct luaL_Reg widget_methods[] = {
-	{ "setBounds", jiveL_widget_set_bounds }, 
+	{ "setBounds", jiveL_widget_set_bounds },
 	{ "getBounds", jiveL_widget_get_bounds },
 	{ "getZOrder", jiveL_widget_get_z_order },
 	{ "isHidden", jiveL_widget_is_hidden },
@@ -1680,7 +1680,7 @@ static int jiveL_core_init(lua_State *L) {
 	lua_setfield(L, -2, "__index");
 	lua_pop(L, 1);
 
-	luaL_newmetatable(L, "JiveSurface"); 
+	luaL_newmetatable(L, "JiveSurface");
 	lua_pushcfunction(L, jiveL_surfacetile_gc);
 	lua_setfield(L, -2, "__gc");
 	lua_getfield(L, 2, "Surface");

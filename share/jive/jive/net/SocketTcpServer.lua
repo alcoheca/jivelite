@@ -15,7 +15,7 @@ Implements a tcp socket to accept client connections.
  listener:t_addRead(function()
 						local newsock = listener:t_accept()
 						local pump = function()
-										 -- do something 
+										 -- do something
 									 end
 						newsock:t_addRead(pump)
 					end

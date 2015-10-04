@@ -300,7 +300,7 @@ int jive_find_file(const char *path, char *fullpath) {
 
 
 /*
- * 
+ *
  */
 static int system_atomic_write(lua_State *L)
 {

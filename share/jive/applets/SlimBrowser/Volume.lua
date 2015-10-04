@@ -522,7 +522,7 @@ end
 
 
 function _getSmallKnobDelta(self, dir, eventTime)
-	local delta = dir --default to use no accelerated value 
+	local delta = dir --default to use no accelerated value
 
 	--First, calculate velocity based a a moving time window
 	if not self._smallKnobPoints then
@@ -547,7 +547,7 @@ function _getSmallKnobDelta(self, dir, eventTime)
 	--need three points for acceleration to kick in (to forgive accidental double turns)
 	if #self._smallKnobPoints > 2 then
 		totalTime = self._smallKnobPoints[#self._smallKnobPoints] - self._smallKnobPoints[1]
-		local velocity = #self._smallKnobPoints/totalTime 
+		local velocity = #self._smallKnobPoints/totalTime
 
 		local deltaReal = SMALL_KNOB_ACCEL_CONSTANT * velocity
 		if deltaReal < 1 then

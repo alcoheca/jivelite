@@ -110,7 +110,7 @@ local irCodes = {
 
 --require"remdebug.engine"
 --  remdebug.engine.start()
-  
+
 local _defaultSkin
 local _fullscreen
 
@@ -208,7 +208,7 @@ function JiveMain:setSoftPowerState(softPowerState, isServerRequest)
 	elseif _softPowerState == "on" then
 		log:info("Turn soft power on")
 		--todo: Define what should happen for a non-jive remote player. Currently if a server is down, locally a SS will engage, but when the server
-		--       comes back up the server is considered the master power might soft power SP back on 
+		--       comes back up the server is considered the master power might soft power SP back on
 		if currentPlayer and (currentPlayer:isConnected() or currentPlayer:isLocal()) then
 			if currentPlayer.slimServer then
 				currentPlayer.slimServer:wakeOnLan()
@@ -452,7 +452,7 @@ end
 
 function JiveMain:jiveMainNodes(globalStrings)
 
-	-- this can be called after language change, 
+	-- this can be called after language change,
 	-- so we need to bring in _globalStrings again if it wasn't provided to the method
 	if globalStrings then
 		_globalStrings = globalStrings
@@ -507,7 +507,7 @@ end
 
 
 -- reload
--- 
+--
 function JiveMain:reload()
 	log:debug("reload()")
 
@@ -622,13 +622,13 @@ function JiveMain:getSkinParam(key)
 		end
 	end
 
-	log:error('no value for skinParam ', key, ' found') 
+	log:error('no value for skinParam ', key, ' found')
 	return nil
 end
 
 
 -- reloadSkin
--- 
+--
 function JiveMain:reloadSkin(reload)
 	_loadSkin(self, self.selectedSkin, true);
 end

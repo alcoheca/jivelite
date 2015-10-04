@@ -298,13 +298,13 @@ function setHours(self, hours)
 	if type(hours) == "string"  then
 		if hours == "12" or hours == "24" then
 			globalHours = hours
-		else 
+		else
 			log:error("datetime:setHours() - hours is not 12 or 24")
 		end
 	elseif type(hours) == "number" then
 		if hours == 12 then
 			globalHours = "12"
-		elseif hours == 24 then 
+		elseif hours == 24 then
 			globalHours = "24"
 		else
 			log:error("datetime:setHours() - hours is not 12 or 24")
@@ -381,9 +381,9 @@ function timeTableFromSFM(self, secondsFromMidnight, format)
 	-- 24h format
 	if format == '24' then
 		if (sfm >= 86400 or sfm < 0) then
-			return { 
-				hour   = 0, 
-				minute = 0, 
+			return {
+				hour   = 0,
+				minute = 0,
 				ampm   = nil,
 			}
 		end
@@ -391,18 +391,18 @@ function timeTableFromSFM(self, secondsFromMidnight, format)
 		local hours   = tonumber(math.floor(sfm/3600))
 		local minutes = tonumber(math.floor((sfm % 3600) / 60 ))
 	
-		return { 
-			hour   = hours, 
-			minute = minutes, 
-			ampm   = nil 
+		return {
+			hour   = hours,
+			minute = minutes,
+			ampm   = nil
 		}
 	-- 12h format
 	else
 		local ampm
 		if (sfm >= 86400 or sfm < 0) then
-			return { 
-				hour   = 12, 
-				minute = 0, 
+			return {
+				hour   = 12,
+				minute = 0,
 				ampm   = 'PM',
 			}
 		end
@@ -422,9 +422,9 @@ function timeTableFromSFM(self, secondsFromMidnight, format)
 			hours = hours - 12
 		end
 	
-		return { 
-			hour   = hours, 
-			minute = minutes, 
+		return {
+			hour   = hours,
+			minute = minutes,
 			ampm   = ampm,
 		}
 	end

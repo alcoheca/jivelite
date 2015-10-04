@@ -432,7 +432,7 @@ function addActionListener(self, action, obj, listener)
 	
 	if not Framework:_getActionEventIndexByName(action) then
 		log:error("action name not registered:(" , action, "). Available actions: ", Framework:dumpActions() )
-		return 
+		return
 	end
 	log:debug("Creating widget action listener for action: (" , action, ") from source: ", callerInfo)
 	
@@ -454,7 +454,7 @@ function addActionListener(self, action, obj, listener)
 
 			end
 	)
-    
+
 end
 
 --[[
@@ -560,7 +560,7 @@ function addTimer(self, interval, callback, once)
 	_assert(type(interval) == "number", "Invalid interval")
 	_assert(type(callback) == "function", "Invalid callback")
 
-	timer = Timer(interval, callback, once) 
+	timer = Timer(interval, callback, once)
 	self.timers[#self.timers + 1] = timer
 
 	if self.visible then

@@ -26,7 +26,7 @@ I<FIXME make the constructor consistant with loop objects.>
 
 Creates a new Event. I<type> is the event type.
 
-This event can be processed using L<jive.ui.Framework:dispatchEvent> or appended to the event queue using L<jive.ui.Framework:pushEvent>. 
+This event can be processed using L<jive.ui.Framework:dispatchEvent> or appended to the event queue using L<jive.ui.Framework:pushEvent>.
 
 =head2 jive.ui.Event:getType()
 

@@ -10,7 +10,7 @@ This applets lets the user configure a username and password to SqueezeCenter
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 HttpAuthApplet overrides the following methods:
 
 =cut
@@ -231,14 +231,14 @@ function _enterTextWindow(self, key, title, help, next)
 				end)
 
 	--[[ FIXME: this needs updating
-	local helpButton = Button( 
-				Label( 
-					'helpTouchButton', 
+	local helpButton = Button(
+				Label(
+					'helpTouchButton',
 					self:string("HTTP_AUTH_HELP")
-				), 
-				function() 
-					self:_helpWindow('HTTP_AUTH', help) 
-				end 
+				),
+				function()
+					self:_helpWindow('HTTP_AUTH', help)
+				end
 	)
         window:addWidget(helpButton)
 	--]]

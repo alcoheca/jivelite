@@ -65,7 +65,7 @@ end
 
 =head2 self:tieWindow(window)
 
-Tie the I<window> to this applet. When all tied windows are poped 
+Tie the I<window> to this applet. When all tied windows are poped
 from the window stack then this applet is freed.
 
 =cut
@@ -87,7 +87,7 @@ end
 
 =head2 self:tieWindow(window, ...)
 
-Tie the I<window> to this applet, and then show the I<window>. When all 
+Tie the I<window> to this applet, and then show the I<window>. When all
 tied windows are poped from the window stack then this applet is freed.
 The varargs are passed to the windows show() method.
 

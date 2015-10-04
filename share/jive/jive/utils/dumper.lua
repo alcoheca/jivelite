@@ -28,10 +28,10 @@ local type, tostring, pairs, ipairs, pcall =
 	type, tostring, pairs, ipairs, pcall
 local setmetatable, getmetatable, setfenv, getfenv =
 	setmetatable, getmetatable, setfenv, getfenv
-local string_format, string_dump, string_rep = 
+local string_format, string_dump, string_rep =
         string.format, string.dump, string.rep
 local table_concat, table_sort, table_concat, table_insert =
-        table.concat, table.sort, table.concat, table.insert 
+        table.concat, table.sort, table.concat, table.insert
 local debug_getupvalue, debug_setupvalue =
 	debug.getupvalue, debug.setupvalue
 local _G = _G
@@ -42,22 +42,22 @@ module(...)
 
 local dumplua_closure = [[
 local closures = {}
-local function closure(t) 
+local function closure(t)
   closures[#closures+1] = t
   t[1] = assert(loadstring(t[1]))
   return t[1]
 end
 
 for _,t in pairs(closures) do
-  for i = 2,#t do 
-    debug_setupvalue(t[1], i-1, t[i]) 
-  end 
+  for i = 2,#t do
+    debug_setupvalue(t[1], i-1, t[i])
+  end
 end
 ]]
 
 local lua_reserved_keywords = {
-  'and', 'break', 'do', 'else', 'elseif', 'end', 'false', 'for', 
-  'function', 'if', 'in', 'local', 'nil', 'not', 'or', 'repeat', 
+  'and', 'break', 'do', 'else', 'elseif', 'end', 'false', 'for',
+  'function', 'if', 'in', 'local', 'nil', 'not', 'or', 'repeat',
   'return', 'then', 'true', 'until', 'while' }
 
 local function keys(t)
@@ -78,7 +78,7 @@ local function keys(t)
 end
 
 local c_functions = {}
-for _,lib in pairs{'_G', 'string', 'table', 'math', 
+for _,lib in pairs{'_G', 'string', 'table', 'math',
     'io', 'os', 'coroutine', 'package', 'debug'} do
   local t = _G[lib] or {}
   lib = lib .. "."
@@ -103,8 +103,8 @@ function dump(value, varname, fastmode, ident)
     number = function(value) return value end,
     boolean = function(value) return tostring(value) end,
     ['nil'] = function(value) return 'nil' end,
-    ['function'] = function(value) 
-      return string_format("loadstring(%q)", string_dump(value)) 
+    ['function'] = function(value)
+      return string_format("loadstring(%q)", string_dump(value))
     end,
     userdata = function() error("Cannot dump userdata") end,
     thread = function() error("Cannot dump threads") end,
@@ -133,7 +133,7 @@ function dump(value, varname, fastmode, ident)
   for _,k in ipairs(lua_reserved_keywords) do
     keycache[k] = '["'..k..'"] = '
   end
-  if fastmode then 
+  if fastmode then
     fcts.table = function (value)
       -- Table value
       local numidx = 1
@@ -148,9 +148,9 @@ function dump(value, varname, fastmode, ident)
         out[#out+1] = str..","
       end
       out[#out+1] = "}"
-      return "" 
+      return ""
     end
-  else 
+  else
     fcts.table = function (value, ident, path)
       if test_defined(value, path) then return "nil" end
       -- Table value
@@ -180,7 +180,7 @@ function dump(value, varname, fastmode, ident)
       if totallen > 80 then
         sep = "\n" .. string_rep("  ", ident+1)
       end
-      str = "{"..sep..table_concat(str, ","..sep).." "..sep:sub(1,-3).."}" 
+      str = "{"..sep..table_concat(str, ","..sep).." "..sep:sub(1,-3).."}"
       if meta then
         sep = sep:sub(1,-3)
         return "setmetatable("..sep..str..","..sep..metastr..sep:sub(1,-3)..")"

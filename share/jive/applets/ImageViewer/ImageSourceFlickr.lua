@@ -10,7 +10,7 @@ applets.ImageViewer.ImageSourceFlickr - Image source for Image Viewer
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 
 =cut
 --]]
@@ -80,7 +80,7 @@ function readImageList(self)
 	elseif displaysetting == "tagged" then
 		method = "flickr.photos.search"
 		args = { per_page = 100, extras = "owner_name", tags = URL.escape(self.applet:getSettings()["flickr.tags"]) }
-	else 
+	else
 		method = "flickr.interestingness.getList"
 		args = { per_page = 100, extras = "owner_name" }
 	end
@@ -189,7 +189,7 @@ function settings(self, window)
 				end
 			},
 			{
-				text = self.applet:string("IMAGE_VIEWER_FLICKR_DISPLAY"), 
+				text = self.applet:string("IMAGE_VIEWER_FLICKR_DISPLAY"),
 				sound = "WINDOWSHOW",
 				callback = function(event, menuItem)
 					self:displaySetting(menuItem)
@@ -309,7 +309,7 @@ function displaySetting(self, menuItem)
 					end,
 					display == "favorites"
 				),
-			},           
+			},
 			{
 				text = self.applet:string("IMAGE_VIEWER_FLICKR_DISPLAY_CONTACTS"),
 				style = 'item_choice',
@@ -323,37 +323,37 @@ function displaySetting(self, menuItem)
 				),
 			},
 			{
-				text = self.applet:string("IMAGE_VIEWER_FLICKR_DISPLAY_INTERESTING"), 
+				text = self.applet:string("IMAGE_VIEWER_FLICKR_DISPLAY_INTERESTING"),
 				style = 'item_choice',
 				check = RadioButton(
-					"radio", 
-					group, 
-					function() 
-						self:setDisplay("interesting") 
+					"radio",
+					group,
+					function()
+						self:setDisplay("interesting")
 					end,
 					display == "interesting"
 				),
 			},
-			{ 
-				text = self.applet:string("IMAGE_VIEWER_FLICKR_DISPLAY_RECENT"), 
+			{
+				text = self.applet:string("IMAGE_VIEWER_FLICKR_DISPLAY_RECENT"),
 				style = 'item_choice',
 				check = RadioButton(
-					"radio", 
-					group, 
-					function() 
-						self:setDisplay("recent") 
+					"radio",
+					group,
+					function()
+						self:setDisplay("recent")
 					end,
 					display == "recent"
 				),
 			},
-			{ 
-				text = self.applet:string("IMAGE_VIEWER_FLICKR_DISPLAY_TAGGED"), 
+			{
+				text = self.applet:string("IMAGE_VIEWER_FLICKR_DISPLAY_TAGGED"),
 				style = 'item_choice',
 				check = RadioButton(
-					"radio", 
-					group, 
-					function() 
-						self:setDisplay("tagged") 
+					"radio",
+					group,
+					function()
+						self:setDisplay("tagged")
 					end,
 					display == "tagged"
 				),

@@ -117,9 +117,9 @@ function sendRequest(self, server)
 			end
 		end,
 		nil,
-		{ 
+		{
 			"jiveapplets",
-			"target:" .. System:getMachine(), 
+			"target:" .. System:getMachine(),
 			"version:" .. self.version,
 		}
 	)
@@ -160,7 +160,7 @@ function menuSink(self, server, data)
 	data, server = self.best.data, self.best.server
 	log:info("best received from ", tostring(server), " with ", data and data.count or 0, " entries");
 
-	-- kill the timer 
+	-- kill the timer
 	self.timer:stop()
 
 	if self.menu then
@@ -210,7 +210,7 @@ function menuSink(self, server, data)
 					self.appletwindow = self:_repoEntry(menuItem, entry, status or "INSTALL")
 				end,
 				weight = 2
-			})				  
+			})				
 		end
 
 	end
@@ -218,7 +218,7 @@ function menuSink(self, server, data)
 	-- if called from meta at restart then reinstall or quit
 	if self.auto then
 		if self.reinstall then
-			self.toremove = self.reinstall 
+			self.toremove = self.reinstall
 			self.todownload = self.reinstall
 			self:action()
 		end
@@ -234,7 +234,7 @@ function menuSink(self, server, data)
 			text = self:string("REINSTALL_ALL"),
 			sound = "WINDOWSHOW",
 			callback = function(event, menuItem)
-				self.toremove = self.reinstall 
+				self.toremove = self.reinstall
 				self.todownload = self.reinstall
 				self:action()
 			end,
@@ -249,7 +249,7 @@ function menuSink(self, server, data)
 			text = tostring(self:string("UPDATE_ALL")) .. " (" .. count .. ")",
 			sound = "WINDOWSHOW",
 			callback = function(event, menuItem)
-				self.toremove = self.updateall 
+				self.toremove = self.updateall
 				self.todownload = self.updateall
 				self:action()
 			end,
@@ -272,7 +272,7 @@ function menuSink(self, server, data)
 
 	if self.menu:numItems() == 0 then
 		self.menu:addItem( {
-			text = self:string("NONE_FOUND"), 
+			text = self:string("NONE_FOUND"),
 			iconStyle = 'item_no_arrow',
 			weight = 2
 		})
@@ -291,7 +291,7 @@ function menuSink(self, server, data)
 		),
 		weight = 4
 	})
-	  
+	
 end
 
 
@@ -362,7 +362,7 @@ function _nonRepoEntry(self, menuItem, name, ver)
 	window:addWidget(menu)
 
 	menu:addItem({
-		text = tostring(self:string("REMOVE")) .. " : " .. ver, 
+		text = tostring(self:string("REMOVE")) .. " : " .. ver,
 		sound = "WINDOWSHOW",
 		callback = function(event, menuItem)
 					   self.toremove[name] = 1
@@ -438,7 +438,7 @@ function _download(self)
 			lfs.mkdir(dir)
 		end
 
-		-- fetch each zip twice if sha present: 
+		-- fetch each zip twice if sha present:
 		-- 1) to verify sha1
 		if appletdata.sha then
 

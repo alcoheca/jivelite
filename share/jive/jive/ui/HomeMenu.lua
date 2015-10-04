@@ -67,7 +67,7 @@ function __init(self, name, style, titleStyle)
 
 	obj.window:addWidget(menu)
 	obj.nodeTable['home'] = {
-		menu = menu, 
+		menu = menu,
 		items = {}
 	}
 	
@@ -100,7 +100,7 @@ function __init(self, name, style, titleStyle)
 
 	obj.window:addListener( EVENT_WINDOW_ACTIVE,
 				function()
-					--only do timer when we know "home press" is power (still might be missing from INACTIVE handling if shortcuts changed recently) 
+					--only do timer when we know "home press" is power (still might be missing from INACTIVE handling if shortcuts changed recently)
 					if Framework:getActionToActionTranslation("home_title_left_press") == "power" then
 						obj.window:addTimer(    1000,
 									function ()
@@ -391,7 +391,7 @@ end
 function _changeNode(self, id, node)
 	-- looks at the node and decides whether it needs to be removed
 	-- from a different node before adding
-	if self.menuTable[id] and self.menuTable[id].node ~= node then 
+	if self.menuTable[id] and self.menuTable[id].node ~= node then
 		-- remove menuitem from previous node
 		self.nodeTable[node].items[id] = nil
 		-- change menuitem's node
@@ -418,7 +418,7 @@ function addNode(self, item)
 		return EVENT_CONSUME
 	end
 
-	if not item.weight then 
+	if not item.weight then
 		item.weight = 100
 	end
 
@@ -498,7 +498,7 @@ function addItemToNode(self, item, node)
 			local labelText = item.homeMenuText
 			if not labelText then
 				if item.text.str then
-					-- FIXME: by grabbing the home menu text directly from item.text.str here, this creates 
+					-- FIXME: by grabbing the home menu text directly from item.text.str here, this creates
 					-- a bug where if the user changes languages these items do not change their language
 					labelText = item.text.str
 				else
@@ -506,7 +506,7 @@ function addItemToNode(self, item, node)
 				end
 			end
 			-- change the menu item's text by creating a new item table with different label text
-			local myItem = _uses(item, { 
+			local myItem = _uses(item, {
 				text = labelText,
 			 })
 			--]]

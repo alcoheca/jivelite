@@ -53,7 +53,7 @@ module(..., oo.class)
 
 =head2 jive.net.HttpPool(jnt, name, ip, port, quantity, threshold, priority)
 
-Creates an HTTP pool named I<name> to interface with the given I<jnt> 
+Creates an HTTP pool named I<name> to interface with the given I<jnt>
 (a L<jive.net.NetworkThread> instance). I<name> is used for debugging and
 defaults to "". I<ip> and I<port> are the IP address and port of the HTTP server.
 

@@ -35,7 +35,7 @@ char *platform_get_ip_address(void) {
 	struct hostent *host_entry;
 	char *szLocalIP = NULL;
 
-	if (WSAStartup(MAKEWORD(2,2), &wsa_Data) == 0)  
+	if (WSAStartup(MAKEWORD(2,2), &wsa_Data) == 0)
 	{
 		// Get the local hostname
 		gethostname(hostname, NI_MAXHOST);
@@ -51,7 +51,7 @@ char *platform_get_ip_address(void) {
 }
 
 char *platform_get_mac_address() {
-    WSADATA info; 
+    WSADATA info;
     struct hostent *phost;
     struct in_addr inaddr;
     IPAddr srcip;

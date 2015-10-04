@@ -75,7 +75,7 @@ local MOUSE_DRAG = 2
 
 local PAGING_BOUNDARY_BUFFER_FRACTION = .25
 
---BUFFER_ZONE area beyond pill bounds to allow a sloppy touch to still be considered in contact with the pill 
+--BUFFER_ZONE area beyond pill bounds to allow a sloppy touch to still be considered in contact with the pill
 local BUFFER_ZONE = 15
 
 -- our class
@@ -120,7 +120,7 @@ end
 =head2 jive.ui.Slider:setScrollbar(min, max, pos, size)
 
 Set the slider range I<min> to I<max>, the bar position to I<pos> and
-the bar size to I<size>.  This method can be used when using this widget 
+the bar size to I<size>.  This method can be used when using this widget
 as a slider.
 
 =cut
@@ -279,13 +279,13 @@ function _eventHandler(self, event)
 				local xPill,yPill,wPill,hPill = self:getPillBounds(true)
 				local xMouse, yMouse = event:getMouse()
 				if not self.pillOffset then
-					if xMouse >= xPill and xMouse <= xPill + wPill then			                        
+					if xMouse >= xPill and xMouse <= xPill + wPill then			
 						--adjust so movement is reference to the pill location, not the pointer location
 						self.pillOffset = xMouse - xPill
 						--no need to move initially, since stuck on pill
 						return EVENT_CONSUME
 					else
-						--only drag if inside pill 
+						--only drag if inside pill
 						return EVENT_CONSUME
 					end
 				end
@@ -301,13 +301,13 @@ function _eventHandler(self, event)
 				local xPill,yPill,wPill,hPill = self:getPillBounds(false)
 				local xMouse, yMouse = event:getMouse()
 				if not self.pillOffset then
-					if yMouse >= (yPill) and yMouse <= (yPill + hPill) then			                        
+					if yMouse >= (yPill) and yMouse <= (yPill + hPill) then			
 						--adjust so movement is reference to the pill location, not the pointer location
 						self.pillOffset = yMouse - yPill
 						--no need to move initially, since stuck on pill
 						return EVENT_CONSUME
 					else
-						--only drag if inside pill 
+						--only drag if inside pill
 						return EVENT_CONSUME
 					end
 				end

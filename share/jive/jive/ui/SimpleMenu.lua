@@ -77,7 +77,7 @@ oo.class(_M, Menu)
 -- _coerce
 -- returns value coerced between 1 and max
 local function _coerce(value, max)
-	if value < 1 then 
+	if value < 1 then
 		return 1
 	elseif value > max then
 		return max
@@ -505,10 +505,10 @@ end
 
 Add I<item> to the end of the menu. Returns the index of the item added.
 
-I<item> is a table with the following keys: 
+I<item> is a table with the following keys:
 - id (optional), a unique key for this menu item
 - text,
-- icon (optional), 
+- icon (optional),
 - weight (optional), see jive.ui.Menu.itemComparatorWeightAlpha,
 - callback (optional), a function performing whatever the menu is supposed to do, having prototype:
    function(event, item) returning nil/jive.ui.EVENT_CONSUME/QUIT/UNUSED

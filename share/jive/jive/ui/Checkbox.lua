@@ -12,7 +12,7 @@ A checkbox widget, extends L<jive.ui.Widget>.
 
  -- New checkbox
  local checkbox = jive.ui.Checkbox(
-	"checkbox", 
+	"checkbox",
 	function(object, isSelected)
 		print("Checkbox is selected: " .. tostring(isSelected))
 	end,
@@ -63,7 +63,7 @@ oo.class(_M, Icon)
 
 =head2 jive.ui.Checkbox(style, closure, isSelected)
 
-Constructs a Checkbox widget. I<style> is the widgets style. I<isSelected> is true if the checkbox is selected, false otherwise (default). I<closure> is a function that will get called whenever the 
+Constructs a Checkbox widget. I<style> is the widgets style. I<isSelected> is true if the checkbox is selected, false otherwise (default). I<closure> is a function that will get called whenever the
 checkbox value changes; the function prototype is:
  function(checkboxObject, isSelected)
 

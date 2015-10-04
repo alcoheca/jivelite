@@ -2,7 +2,7 @@
 --[[
 =head1 NAME
 
-jive.ui.Framework - User interface framework 
+jive.ui.Framework - User interface framework
 
 =head1 DESCRIPTION
 
@@ -193,7 +193,7 @@ function constants(module)
 	module.EVENT_WINDOW_POP = jive.ui.EVENT_WINDOW_POP
 	module.EVENT_WINDOW_ACTIVE = jive.ui.EVENT_WINDOW_ACTIVE
 	module.EVENT_WINDOW_INACTIVE = jive.ui.EVENT_WINDOW_INACTIVE
-	module.EVENT_SHOW = jive.ui.EVENT_SHOW 
+	module.EVENT_SHOW = jive.ui.EVENT_SHOW
 	module.EVENT_HIDE = jive.ui.EVENT_HIDE
 	module.EVENT_FOCUS_GAINED = jive.ui.EVENT_FOCUS_GAINED
 	module.EVENT_FOCUS_LOST = jive.ui.EVENT_FOCUS_LOST
@@ -228,7 +228,7 @@ function constants(module)
 	module.KEY_PAUSE = jive.ui.KEY_PAUSE
 	module.KEY_STOP = jive.ui.KEY_STOP
 	module.KEY_REW = jive.ui.KEY_REW
-	module.KEY_FWD = jive.ui.KEY_FWD 
+	module.KEY_FWD = jive.ui.KEY_FWD
 	module.KEY_REW_SCAN = jive.ui.KEY_REW_SCAN
 	module.KEY_FWD_SCAN = jive.ui.KEY_FWD_SCAN
 	module.KEY_PAGE_UP = jive.ui.KEY_PAGE_UP
@@ -254,7 +254,7 @@ function init(self)
 	-- initialize SDL
 	self:initSDL()
 
-	-- action mapping listener, should be last listener in chain to 
+	-- action mapping listener, should be last listener in chain to
 	-- allow for direct access to keys/other input types if needed.
 	self:addListener(bit.bor(jive.ui.EVENT_KEY_ALL, jive.ui.EVENT_CHAR_PRESS, jive.ui.EVENT_IR_ALL, jive.ui.EVENT_GESTURE),
 		function(event)
@@ -313,7 +313,7 @@ function eventLoop(self, netTask)
 
 	local running = true
 	while running do
-		-- process tasks: 
+		-- process tasks:
 		-- all audio tasks + as many other tasks as possible until a frame is due
 		local tasks = false
 		for task in Task:iterator() do
@@ -578,14 +578,14 @@ end
 --[[
 =head2 jive.ui.Framework:callerToString()
 
-Returns source:lineNumber information about the caller from the Lua call stack 
+Returns source:lineNumber information about the caller from the Lua call stack
 
 =cut
 --]]
 function callerToString(self)
 	local info = debug.getinfo(3, "Sl")
-	if not info then 
-		return "No caller found" 
+	if not info then
+		return "No caller found"
 	end
 	
 	if info.what == "C" then
@@ -658,7 +658,7 @@ function removeListener(self, handle)
 end
 
 function dumpActions(self)
-	local result = "Actions: " 
+	local result = "Actions: "
 	for action in table.pairsByKeys(self.actions.byName) do
 		result = result .. " " .. action
 	end
@@ -667,7 +667,7 @@ end
 
 function _getActionEventIndexByName(self, name)
 	if (self.actions.byName[name] == nil) then
-		return nil   
+		return nil
 	end
 	
 	return self.actions.byName[name].index
@@ -676,7 +676,7 @@ end
 function getActionEventNameByIndex(self, index)
 	if (index > #self.actions.byIndex) then
 		log:error("action event index out of bounds: " , index)
-		return nil   
+		return nil
 	end
 	
 	return self.actions.byIndex[index].name
@@ -723,7 +723,7 @@ end
 =head2 jive.ui.Framework:registerAction(actionName)
 
 Register an action. actionName is a unique string that represents an action.
-Each action must be registered before listeners using it can be created (for typo prevention, and other future uses). 
+Each action must be registered before listeners using it can be created (for typo prevention, and other future uses).
 By default, a bump listener is added so that if nothing else responds, a bump will occur
 =cut
 --]]
@@ -772,7 +772,7 @@ function getActionToActionTranslation(self, action)
 		return action
 	end
 	log:debug("Translated action " , action, " to ", translatedAction )
-	return translatedAction 
+	return translatedAction
 end
 
 
@@ -918,7 +918,7 @@ function convertInputToAction(self, inputEvent)
 end
 
 
---if the passed in actionName is not a registered action, an error is logged and false is returned. 
+--if the passed in actionName is not a registered action, an error is logged and false is returned.
 function assertActionName(self, actionName)
 	if not self:_getActionEventIndexByName(actionName) then
 		log:error("action name '", actionName, "' is not registered. ", self:dumpActions() )
@@ -968,7 +968,7 @@ end
 function isAnActionTriggeringKeyEvent(self, event, keyEventMask)
 	if (bit.band(event:getType(), keyEventMask) > 0) then
 		local keycode = event:getKeycode()
-		if keycode == KEY_UP or keycode == KEY_DOWN or keycode == KEY_FWD or keycode == KEY_REW 
+		if keycode == KEY_UP or keycode == KEY_DOWN or keycode == KEY_FWD or keycode == KEY_REW
 				or keycode == KEY_VOLUME_DOWN or keycode == KEY_VOLUME_UP then
 			return false
 		else
@@ -983,7 +983,7 @@ end
 function _loadIRMap(file)
 	log:debug("_loadIRMap: ", file)
 
-	if not file then 
+	if not file then
 		return nil
 	end
 	
@@ -1007,13 +1007,13 @@ function initIRCodeMappings(self)
 	-- location of mapping file not yet set - might want to be in user area so users can modify and add more for other remotes
         local defaultMapPath = System:findFile("jive/irMap_default.lua")
         local defaultMapWrapper = _loadIRMap(defaultMapPath)
-        
-        
+
+
         if not defaultMapWrapper then
                 log:error("Unable to load IR mapping file: ", defaultMapWrapper)
                 return nil
         end
-        
+
         --just doing default for now, todo: add other remote, and warn if duplicate ir codes exist across the mappings
         local mapWrapper = defaultMapWrapper
         self.irMaps[mapWrapper.name] = {}
@@ -1023,13 +1023,13 @@ function initIRCodeMappings(self)
         for irCode, buttonName in pairs(mapWrapper.map) do
 	        self.irMaps[mapWrapper.name].byName[buttonName] = irCode
         end
-        
-        
+
+
 	
 end
 
 function _dumpIrButtonNames(self)
-	local result = "Available IR Button Names: " 
+	local result = "Available IR Button Names: "
 	for mapName, map in pairs(self.irMaps) do
 		result = result .. " (from " .. mapName .. ")"
 		for name, code in table.pairsByKeys(map.byName) do
@@ -1083,7 +1083,7 @@ end
 
 =head2 jive.ui.Framework:getIRButtonName(irCode)
 
-return the button name associated with the irCode 
+return the button name associated with the irCode
 
 =cut
 --]]
@@ -1105,7 +1105,7 @@ end
 
 =head2 jive.ui.Framework:isValidIRCode(irEvent)
 
-return true if any loaded IR map file contains a mapping for the given irEvent. Useful to filter out IR signals from 
+return true if any loaded IR map file contains a mapping for the given irEvent. Useful to filter out IR signals from
 other IR remote controls that the user might have.
 
 =cut

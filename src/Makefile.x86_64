@@ -6,7 +6,7 @@ CFLAGS = -I$(PREFIX)/include/SDL -I$(PREFIX)/include
 LDFLAGS = -L$(PREFIX)/lib -lz -ljpeg -lpng -lpng12 -lfreetype -lSDLmain -lresolv -Wl,-framework,OpenGL -Wl,-framework,Cocoa -Wl,-framework,ApplicationServices -Wl,-framework,Carbon -Wl,-framework,AudioToolbox -Wl,-framework,AudioUnit -Wl,-framework,IOKit
 
 # this is needed for luajit on 64 bit osx
-LDFLAGS += -pagezero_size 10000 -image_base 100000000 
+LDFLAGS += -pagezero_size 10000 -image_base 100000000
 
 SOURCES = platform_osx.c
 

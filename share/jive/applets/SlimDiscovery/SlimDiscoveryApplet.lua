@@ -69,8 +69,8 @@ local function _slimDiscoverySource()
 		"e",                                                           -- new discovery packet
 		'IPAD', string.char(0x00),                                     -- request IP address of server
 		'NAME', string.char(0x00),                                     -- request Name of server
-		'JSON', string.char(0x00),                                     -- request JSONRPC port 
-		'VERS', string.char(0x00),                                     -- request version 
+		'JSON', string.char(0x00),                                     -- request JSONRPC port
+		'VERS', string.char(0x00),                                     -- request version
 		'UUID', string.char(0x00),                                     -- request uuid
 		'JVID', string.char(0x06, 0x12, 0x34, 0x56, 0x78, 0x12, 0x34), -- My ID - FIXME mac of no use!
 	}

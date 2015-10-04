@@ -115,7 +115,7 @@ function isSequenceNumberInSync(self, serverSequenceNumber)
 --]]	return true
 end
 
---resend local values to server, but only update seq number on last call, so that the next player status comes back with a single increase 
+--resend local values to server, but only update seq number on last call, so that the next player status comes back with a single increase
 function refreshLocallyMaintainedParameters(self)
 	log:debug("refreshLocallyMaintainedParameters()")
 

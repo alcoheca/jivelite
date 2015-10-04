@@ -93,9 +93,9 @@ int jiveL_label_skin(lua_State *L) {
 	
 	//scroll_offset_step is font size dependent
 	if ( peer->base.font->size && peer->base.font->size > SCROLL_OFFSET_STEP_MINIMUM * FONT_SCROLL_FACTOR ) {
-		peer->scroll_offset_step = peer->base.font->size / FONT_SCROLL_FACTOR; 
+		peer->scroll_offset_step = peer->base.font->size / FONT_SCROLL_FACTOR;
 	} else {
-		peer->scroll_offset_step = SCROLL_OFFSET_STEP_MINIMUM; 
+		peer->scroll_offset_step = SCROLL_OFFSET_STEP_MINIMUM;
 	}
 	
 	peer->base.lineHeight = jive_style_int(L, 1, "lineHeight", jive_font_capheight(peer->base.font));
@@ -115,7 +115,7 @@ int jiveL_label_skin(lua_State *L) {
 			peer->format[i].textOffset = jive_font_offset(peer->base.font);
 			if (peer->format[i].font->size > peer->scroll_offset_step * FONT_SCROLL_FACTOR) {
 				//use large font found for scroll_offset
-				peer->scroll_offset_step = peer->format[i].font->size / FONT_SCROLL_FACTOR; 
+				peer->scroll_offset_step = peer->format[i].font->size / FONT_SCROLL_FACTOR;
 			}
 		}
 		peer->format[i].fg = jive_style_array_color(L, 1, "line", i+1, "fg", JIVE_COLOR_BLACK, &(peer->format[i].is_fg));
@@ -425,7 +425,7 @@ int jiveL_label_draw(lua_State *L) {
 				Uint16 len = MAX(0, text_w - s);
 				jive_surface_blit_clip(line->text_sh, 0, 0, len, h,
 						       srf, peer->w.bounds.x + line->label_x + s + 1, peer->w.bounds.y + line->label_y + 1);
-			} 
+			}
 		}
 
 		/* foreground text */
@@ -436,7 +436,7 @@ int jiveL_label_draw(lua_State *L) {
 			Uint16 len = MAX(0, text_w - s);
 			jive_surface_blit_clip(line->text_fg, 0, 0, len, h,
 					       srf, peer->w.bounds.x + line->label_x + s, peer->w.bounds.y + line->label_y);
-		} 
+		}
 	}
 
 	return 0;

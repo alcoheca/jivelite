@@ -274,7 +274,7 @@ function __init(self, jnt)
 	Framework:addWidget(obj.button_time)
 
 	obj.button_time:addTimer(1000,  -- every second
-			      function() 
+			      function()
 				      obj:update()
 			      end)
 	

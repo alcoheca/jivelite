@@ -2,7 +2,7 @@
 --[[
 =head1 NAME
 
-applets.HDSkin.HDSkinMeta 
+applets.HDSkin.HDSkinMeta
 
 =cut
 --]]

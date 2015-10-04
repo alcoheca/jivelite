@@ -1,28 +1,28 @@
-/* CopyResampled routine adapted from libgd 
+/* CopyResampled routine adapted from libgd
 
 Adapted from libgd code with the following copyright:
 
      Portions copyright 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001,
      2002 by Cold Spring Harbor Laboratory. Funded under Grant
-     P41-RR02188 by the National Institutes of Health. 
+     P41-RR02188 by the National Institutes of Health.
 
      Portions copyright 1996, 1997, 1998, 1999, 2000, 2001, 2002 by
-     Boutell.Com, Inc. 
+     Boutell.Com, Inc.
 
      Portions relating to GD2 format copyright 1999, 2000, 2001, 2002
      Philip Warner.
-     
-     Portions relating to PNG copyright 1999, 2000, 2001, 2002 Greg
-     Roelofs. 
 
-     Portions relating to gdttf.c copyright 1999, 2000, 2001, 2002 John  
+     Portions relating to PNG copyright 1999, 2000, 2001, 2002 Greg
+     Roelofs.
+
+     Portions relating to gdttf.c copyright 1999, 2000, 2001, 2002 John
      Ellson (ellson@lucent.com).
-   
-     Portions relating to gdft.c copyright 2001, 2002 John Ellson  
-     (ellson@lucent.com).  
+
+     Portions relating to gdft.c copyright 2001, 2002 John Ellson
+     (ellson@lucent.com).
 
      Portions copyright 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007
-		 2008 Pierre-Alain Joye (pierre@libgd.org).  
+		 2008 Pierre-Alain Joye (pierre@libgd.org).
 
      Portions relating to JPEG and to color quantization copyright 2000,
      2001, 2002, Doug Becker and copyright (C) 1994, 1995, 1996, 1997,
@@ -38,16 +38,16 @@ Adapted from libgd code with the following copyright:
      provided that this notice is present in user-accessible supporting
      documentation.
 
-     This does not affect your ownership of the derived work itself, and 
+     This does not affect your ownership of the derived work itself, and
      the intent is to assure proper credit for the authors of gd, not to
      interfere with your productive use of gd. If you have questions,
-     ask. "Derived works" includes all programs that utilize the   
+     ask. "Derived works" includes all programs that utilize the
      library. Credit must be given in user-accessible documentation.
 
-     This software is provided "AS IS." The copyright holders disclaim  
+     This software is provided "AS IS." The copyright holders disclaim
      all warranties, either express or implied, including but not
      limited to implied warranties of merchantability and fitness for a
-     particular purpose, with respect to this code and accompanying  
+     particular purpose, with respect to this code and accompanying
      documentation.
 
      Although their code does not appear in gd, the authors wish to thank
@@ -65,7 +65,7 @@ Adapted from libgd code with the following copyright:
 
 // NB - this assumes 4 bytes per pixel at present and does nothing in other cases
 
-void copyResampled (SDL_Surface *dst, SDL_Surface *src, 
+void copyResampled (SDL_Surface *dst, SDL_Surface *src,
 					int dstX, int dstY, int srcX, int srcY,
 					int dstW, int dstH, int srcW, int srcH) {
 	int x, y;
@@ -160,7 +160,7 @@ void copyResampled (SDL_Surface *dst, SDL_Surface *src,
 				alpha = 255.0;
 			}
 
-			*((Uint32 *)dst->pixels + y * dst->pitch / 4 + x) = 
+			*((Uint32 *)dst->pixels + y * dst->pitch / 4 + x) =
 				SDL_MapRGBA(dst->format, (Uint8)red, (Uint8)green, (Uint8)blue, (Uint8)alpha);
 		}
 	}

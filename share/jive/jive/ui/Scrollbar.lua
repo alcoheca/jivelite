@@ -80,7 +80,7 @@ end
 =head2 jive.ui.Scrollbar:setScrollbar(min, max, pos, size)
 
 Set the scrollbar range I<min> to I<max>, the bar position to I<pos> and
-the bar size to I<size>.  This method can be used when using this widget 
+the bar size to I<size>.  This method can be used when using this widget
 as a scrollbar.
 
 =cut
@@ -97,11 +97,11 @@ end
 
 function _setSlider(self, percent)
 	
-	--boundary guard, since value is often past border (e.g. when vertical slider drag y value moves above slider)  
+	--boundary guard, since value is often past border (e.g. when vertical slider drag y value moves above slider)
 	if percent < 0 then
 		percent = 0
 	elseif percent >= 1 then
-		percent = .9999 
+		percent = .9999
 	end
 
 	local pos = percent * (self.range)

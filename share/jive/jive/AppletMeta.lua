@@ -8,7 +8,7 @@ jive.AppletMeta - The applet meta base class.
 
 This is a base class for the applet meta, a small class that is
 loaded at boot to perform (a) versioning verification and (b)
-hook the applet into the menu system or whatever so that it can 
+hook the applet into the menu system or whatever so that it can
 be accessed and loaded on demand.
 
 =head1 FUNCTIONS
@@ -125,7 +125,7 @@ local lastMenuApplet = false
 
 Convenience method that returns a MenuItem to be used in the SimpleMenu
 to open an applet. I<label> is a string token, and I<closure>
-is the function executed when the MenuItem is selected. 
+is the function executed when the MenuItem is selected.
 
 =cut
 --]]

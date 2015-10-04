@@ -15,19 +15,19 @@ A radio button widget, extends L<jive.ui.Widget>. The radio button must be a mem
 
  -- Create a new radio group
  local group = jive.ui.RadioGroup()
- 
+
  -- Create buttons in the group
  local button1 = jive.ui.RadioButton(
-	"radio1", 
-	group, 
+	"radio1",
+	group,
 	function(object)
 		print("radio1 selected")
 	end,
 	false)
- 
+
  local button2 = jive.ui.RadioButton(
-	"radio2", 
-	group, 
+	"radio2",
+	group,
 	function(object)
 		print("radio2 selected")
 	end,
@@ -164,7 +164,7 @@ function _set(self, selected)
 
 	if selected then
 		self.imgStyleName = "img_on"
-		if self.closure then 
+		if self.closure then
 			self.closure(self)
 		end
 	else

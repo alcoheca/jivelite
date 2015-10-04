@@ -310,7 +310,7 @@ static int mouse_closure(lua_State *L) {
 
 	event = lua_touserdata(L, lua_upvalueindex(1));
 
-	if (peer->bounds.x < event->u.mouse.x && event->u.mouse.x < peer->bounds.x + peer->bounds.w && 
+	if (peer->bounds.x < event->u.mouse.x && event->u.mouse.x < peer->bounds.x + peer->bounds.w &&
 	    peer->bounds.y < event->u.mouse.y && event->u.mouse.y < peer->bounds.y + peer->bounds.h) {
 		if (jive_getmethod(L, 1, "_event")) {
 			lua_pushvalue(L, 1); /* widget */

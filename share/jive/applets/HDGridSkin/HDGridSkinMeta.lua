@@ -2,7 +2,7 @@
 --[[
 =head1 NAME
 
-applets.HDGridSkin.HDGridSkinMeta 
+applets.HDGridSkin.HDGridSkinMeta
 
 =cut
 --]]

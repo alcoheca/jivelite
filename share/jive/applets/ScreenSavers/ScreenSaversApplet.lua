@@ -11,7 +11,7 @@ service, complete with settings.
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 ScreenSaversApplet overrides the following methods:
 
 =cut
@@ -58,7 +58,7 @@ function init(self, ...)
 	self.screensaverSettings = {}
 	self:addScreenSaver(
 		self:string("SCREENSAVER_NONE"),  -- display name
-		false,	-- applet for this screensaver 
+		false,	-- applet for this screensaver
 		false,	-- method from the applet to call
 		_,	--settingsName
 		_,	--settings
@@ -67,7 +67,7 @@ function init(self, ...)
 		nil,	-- methodParam
 		nil,	-- additionalKey
 		{"whenOff"} -- "none" is not an acceptable option for an off screensaver, so exclude it from the settings menu for that mode
-	) 
+	)
 
 	self.timeout = self:getSettings()["timeout"]
 
@@ -719,10 +719,10 @@ function screensaverSetting(self, menuItem, mode)
 	menu:setHeaderWidget(Textarea("help_text", self:string(token)))
 	window:addWidget(menu)
 
-	window:addListener(EVENT_WINDOW_POP, function() 
+	window:addListener(EVENT_WINDOW_POP, function()
 			-- we may be moving off of false:false here, so when we leave this window, restart the SS timer
 			self:restartScreenSaverTimer()
-			self:storeSettings() 
+			self:storeSettings()
 	end)
 
 	self:tieAndShowWindow(window)
@@ -758,7 +758,7 @@ function timeoutSetting(self, menuItem)
 				style = 'item_choice',
 				check = RadioButton("radio", group, function() self:setTimeout(60000) end, timeout == 60000),
 			},
-			{ 
+			{
 				text = self:string('DELAY_2_MIN'),
 				style = 'item_choice',
 				check = RadioButton("radio", group, function() self:setTimeout(120000) end, timeout == 120000),
@@ -768,12 +768,12 @@ function timeoutSetting(self, menuItem)
 				style = 'item_choice',
 				check = RadioButton("radio", group, function() self:setTimeout(300000) end, timeout == 300000),
 			},
-			{ 
+			{
 				text = self:string('DELAY_10_MIN'),
 				style = 'item_choice',
 				check = RadioButton("radio", group, function() self:setTimeout(600000) end, timeout == 600000),
 			},
-			{ 
+			{
 				text = self:string('DELAY_30_MIN'),
 				style = 'item_choice',
 				check = RadioButton("radio", group, function() self:setTimeout(1800000) end, timeout == 1800000),
@@ -791,7 +791,7 @@ function openSettings(self, menuItem)
 
 	local menu = SimpleMenu("menu",
 		{
-			{ 
+			{
 				text = self:string('SCREENSAVER_WHEN_PLAYING'),
 				weight = 1,
 				sound = "WINDOWSHOW",

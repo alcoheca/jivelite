@@ -2,7 +2,7 @@
 --[[
 =head1 NAME
 
-applets.WQVGAgridSkin.WQVGAgridSkinMeta 
+applets.WQVGAgridSkin.WQVGAgridSkinMeta
 
 =head1 DESCRIPTION
 

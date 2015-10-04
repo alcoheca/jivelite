@@ -87,7 +87,7 @@ end)
 
 =head2 jive.net.SocketUdp(jnt, sink, name)
 
-Creates a UDP socket named I<name> to interface with the given I<jnt> 
+Creates a UDP socket named I<name> to interface with the given I<jnt>
 (a L<jive.net.NetworkThread> instance). I<name> is used for debugging and
 defaults to "". I<sink> is the main thread ltn12 sink that will receive the data.
 Must be called by subclasses.
@@ -183,7 +183,7 @@ end
 
 
 -- t_getWritePump
--- returns a pump to write out udp data. It removes itself when the 
+-- returns a pump to write out udp data. It removes itself when the
 -- queue is empty after each pump
 function t_getWritePump(self, t_source)
 
@@ -217,8 +217,8 @@ end
 
 =head2 jive.net.SocketUdp:send(t_source, address, port)
 
-Sends the data obtained through I<t_source> to the 
-given I<address> and I<port>. I<t_source> is a ltn12 source called from 
+Sends the data obtained through I<t_source> to the
+given I<address> and I<port>. I<t_source> is a ltn12 source called from
 the network thread.
 
 =cut

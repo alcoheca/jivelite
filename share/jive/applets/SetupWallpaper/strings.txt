@@ -4,7 +4,7 @@
 #
 # NOTE: this strings.txt file is a bit special, in that it provides
 # strings for not only squeezeplay/share/applets/SetupWallpaper, but
-# for the platform-specific wallpapers found in 
+# for the platform-specific wallpapers found in
 # squeezeplay_fab4/share/applets/SetupWallpaper/wallpaper/
 # squeezeplay_jive/share/applets/SetupWallpaper/wallpaper/
 # etc.

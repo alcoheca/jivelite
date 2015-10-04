@@ -18,7 +18,7 @@ birdslikewires.co.uk
 
 =head1 FUNCTIONS
 
-Applet related methods are described in L<jive.Applet>. 
+Applet related methods are described in L<jive.Applet>.
 SqueezeboxSkin overrides the following methods:
 
 =cut
@@ -105,10 +105,10 @@ function param(self)
 			hourTickPath     = 'applets/JogglerSkin/images/Clocks/Radial/radial_ticks_hr_on.png',
 			minuteTickPath   = 'applets/JogglerSkin/images/Clocks/Radial/radial_ticks_min_on.png',
 		},
-		nowPlayingScreenStyles = { 
+		nowPlayingScreenStyles = {
 			-- every skin needs to start off with a nowplaying style
 			{
-				style = 'nowplaying', 
+				style = 'nowplaying',
 				artworkSize = '270x270',
 				text = self:string("ART_AND_TEXT"),
 			},
@@ -561,7 +561,7 @@ function skin(self, s)
 				 nil,
 		})
 
-	local textinputBackground     = 
+	local textinputBackground     =
 		_loadTile(self, {
 				 imgpath .. "Text_Entry/Keyboard_Touch/titlebar_box.png",
 				 imgpath .. "Text_Entry/Keyboard_Touch/text_entry_titlebar_box_tl.png",
@@ -600,7 +600,7 @@ function skin(self, s)
 					imgpath .. "Buttons/button_titlebar_l.png",
 				})
 
-	local popupBox = 
+	local popupBox =
 		_loadTile(self, {
 				       imgpath .. "Popup_Menu/popup_box.png",
 				       imgpath .. "Popup_Menu/popup_box_tl.png",
@@ -613,7 +613,7 @@ function skin(self, s)
 				       imgpath .. "Popup_Menu/popup_box_l.png",
 			       })
 
-	local contextMenuBox = 
+	local contextMenuBox =
 		_loadTile(self, {
 				       imgpath .. "Popup_Menu/cm_popup_box.png",
 				       imgpath .. "Popup_Menu/cm_popup_box_tl.png",
@@ -628,14 +628,14 @@ function skin(self, s)
 
 
 
-	local scrollBackground = 
+	local scrollBackground =
 		_loadVTile(self, {
 					imgpath .. "Scroll_Bar/scrollbar_bkgrd_t.png",
 					imgpath .. "Scroll_Bar/scrollbar_bkgrd.png",
 					imgpath .. "Scroll_Bar/scrollbar_bkgrd_b.png",
 			       })
 
-	local scrollBar = 
+	local scrollBar =
 		_loadVTile(self, {
 					imgpath .. "Scroll_Bar/scrollbar_body_t.png",
 					imgpath .. "Scroll_Bar/scrollbar_body.png",
@@ -709,19 +709,19 @@ function skin(self, s)
 		padding = { 0, 0, 0, 10 }
 	}
 	-- convenience method for removing a button from the window
-	local noButton = { 
-		img = false, 
-		bgImg = false, 
-		w = 0 
+	local noButton = {
+		img = false,
+		bgImg = false,
+		w = 0
 	}
 
-	local playArrow = { 
+	local playArrow = {
 		img = _loadImage(self, "Icons/selection_play_3line_on.png"),
 	}
-	local addArrow  = { 
+	local addArrow  = {
 		img = _loadImage(self, "Icons/selection_add_3line_off.png"),
 	}
-	local favItem  = { 
+	local favItem  = {
 		img = _loadImage(self, "Icons/icon_toolbar_fav.png"),
 	}
 
@@ -784,7 +784,7 @@ function skin(self, s)
 
 --------- DEFAULT WIDGET STYLES ---------
 	--
-	-- These are the default styles for the widgets 
+	-- These are the default styles for the widgets
 
 	s.window = {
 		w = screenWidth,
@@ -887,11 +887,11 @@ function skin(self, s)
 		bgImg = fiveItemBox,
 	}
 
-	s.item_play = _uses(s.item, { 
+	s.item_play = _uses(s.item, {
 		arrow = { img = false },
 	})
-	s.item_add = _uses(s.item, { 
-		arrow = addArrow 
+	s.item_add = _uses(s.item, {
+		arrow = addArrow
 	})
 
 	-- Checkbox
@@ -1159,10 +1159,10 @@ function skin(self, s)
 	s.keyboard.key_bottom      = _uses(s.keyboard.key, { bgImg = keyBottom })
 	s.keyboard.key_bottomRight = _uses(s.keyboard.key, { bgImg = keyBottomRight })
 
-	-- styles for keys that use smaller font 
+	-- styles for keys that use smaller font
 	s.keyboard.key_bottom_small      = _uses(s.keyboard.key_bottom, { font = _boldfont(36) } )
-	s.keyboard.key_bottomRight_small = _uses(s.keyboard.key_bottomRight, { 
-			font = _boldfont(36), 
+	s.keyboard.key_bottomRight_small = _uses(s.keyboard.key_bottomRight, {
+			font = _boldfont(36),
 			fg = { 0xe7, 0xe7, 0xe7 },
 	} )
 	s.keyboard.key_bottomLeft_small  = _uses(s.keyboard.key_bottomLeft, { font = _boldfont(36) } )
@@ -1226,7 +1226,7 @@ function skin(self, s)
                         img = _loadImage(self, "Alerts/wifi_connecting_sm.png"),
 			frameRate = 8,
 			frameWidth = 26,
-			w = WH_FILL, 
+			w = WH_FILL,
 			h = WH_FILL,
 			align = 'center',
 		}),
@@ -1542,7 +1542,7 @@ function skin(self, s)
 		bgImg = threeItemPressedBox,
 	})
 	s.multiline_text_list.menu.pressed.item_no_arrow = _uses(s.multiline_text_list.menu.pressed.item)
- 
+
 	-- popup "spinny" window
 	s.waiting_popup = _uses(s.popup, {
 		text = {
@@ -1707,18 +1707,18 @@ function skin(self, s)
 			img = _loadImage(self, "Icons/icon_check_5line.png")
 		},
 	})
-	s.icon_list.menu.item_play = _uses(s.icon_list.menu.item, { 
+	s.icon_list.menu.item_play = _uses(s.icon_list.menu.item, {
 		arrow = { img = false },
 	})
 	s.icon_list.menu.albumcurrent = _uses(s.icon_list.menu.item_play, {
-		arrow = { 
+		arrow = {
 			img = _loadImage(self, "Icons/icon_nplay_3line_off.png"),
 		},
 		text = { padding = 0, },
 		-- Bug 11482c#13, don't know why the bgImg has to be redefined again here, but this fixes the issue
 		bgImg = fiveItemBox,
 	})
-	s.icon_list.menu.item_add  = _uses(s.icon_list.menu.item, { 
+	s.icon_list.menu.item_add  = _uses(s.icon_list.menu.item, {
 		arrow = addArrow,
 	})
 	s.icon_list.menu.item_no_arrow = _uses(s.icon_list.menu.item, {
@@ -1733,7 +1733,7 @@ function skin(self, s)
 			bgImg = fiveItemSelectionBox
 		}),
                 albumcurrent       = _uses(s.icon_list.menu.albumcurrent, {
-			arrow = { 
+			arrow = {
 				img = _loadImage(self, "Icons/icon_nplay_3line_sel.png"),
 			},
 			bgImg = fiveItemSelectionBox,
@@ -1755,26 +1755,26 @@ function skin(self, s)
 		}),
         }
         s.icon_list.menu.pressed = {
-                item = _uses(s.icon_list.menu.item, { 
-			bgImg = fiveItemPressedBox 
+                item = _uses(s.icon_list.menu.item, {
+			bgImg = fiveItemPressedBox
 		}),
                 albumcurrent       = _uses(s.icon_list.menu.albumcurrent, {
 			bgImg = fiveItemSelectionBox
 		}),
-                item_checked = _uses(s.icon_list.menu.item_checked, { 
-			bgImg = fiveItemPressedBox 
+                item_checked = _uses(s.icon_list.menu.item_checked, {
+			bgImg = fiveItemPressedBox
 		}),
-                item_play = _uses(s.icon_list.menu.item_play, { 
-			bgImg = fiveItemPressedBox 
+                item_play = _uses(s.icon_list.menu.item_play, {
+			bgImg = fiveItemPressedBox
 		}),
-                item_add = _uses(s.icon_list.menu.item_add, { 
-			bgImg = fiveItemPressedBox 
+                item_add = _uses(s.icon_list.menu.item_add, {
+			bgImg = fiveItemPressedBox
 		}),
-                item_no_arrow = _uses(s.icon_list.menu.item_no_arrow, { 
-			bgImg = fiveItemPressedBox 
+                item_no_arrow = _uses(s.icon_list.menu.item_no_arrow, {
+			bgImg = fiveItemPressedBox
 		}),
-                item_checked_no_arrow = _uses(s.icon_list.menu.item_checked_no_arrow, { 
-			bgImg = fiveItemPressedBox 
+                item_checked_no_arrow = _uses(s.icon_list.menu.item_checked_no_arrow, {
+			bgImg = fiveItemPressedBox
 		}),
         }
 	s.icon_list.menu.locked = {
@@ -1872,7 +1872,7 @@ function skin(self, s)
 		group = {
 			padding = 10,
 			order = { 'icon', 'text' },
-			text = { 
+			text = {
 				padding = { 10, 12, 12, 12 } ,
 				align = 'top-left',
 				w = WH_FILL,
@@ -1880,8 +1880,8 @@ function skin(self, s)
 				font = _font(HELP_FONT_SIZE),
 				lineHeight = HELP_FONT_SIZE + 5,
 			},
-			icon = { 
-				align = 'top-left', 
+			icon = {
+				align = 'top-left',
 				border = { 12, 12, 0, 0 },
 				img = _loadImage(self, "UNOFFICIAL/menu_album_noartwork_64.png"),
 				h = WH_FILL,
@@ -2026,7 +2026,7 @@ function skin(self, s)
 			h = CM_MENU_HEIGHT * 8,
 			border = { 7, 0, 7, 0 },
 			padding = { 0, 0, 0, 100 },
-			scrollbar = { 
+			scrollbar = {
 				h = CM_MENU_HEIGHT * 8,
 			},
 			item = {
@@ -2195,7 +2195,7 @@ function skin(self, s)
 			border = 0,
 			itemHeight = CM_MENU_HEIGHT,
 			position = LAYOUT_NORTH,
-			scrollbar = { 
+			scrollbar = {
 				h = CM_MENU_HEIGHT * 5 - 8,
 				border = {0,4,0,0},
 			},
@@ -2390,7 +2390,7 @@ function skin(self, s)
 		w = 96,
 		h = 66,
 		padding = { 14, 0, 0, 0 },
-		border = { 0, 2, 9, 5}, 
+		border = { 0, 2, 9, 5},
 		img = _loadImage(self, "Icons/icon_delete_tch_text_entry.png"),
 		bgImg = deleteKeyBackground,
 	}
@@ -2406,13 +2406,13 @@ function skin(self, s)
 		img = false,
 	}
 
-	s.region_US = _uses(_buttonicon, { 
+	s.region_US = _uses(_buttonicon, {
 		img = _loadImage(self, "IconsResized/icon_region_americas" .. skinSuffix),
 	})
-	s.region_XX = _uses(_buttonicon, { 
+	s.region_XX = _uses(_buttonicon, {
 		img = _loadImage(self, "IconsResized/icon_region_other" .. skinSuffix),
 	})
-	s.icon_help = _uses(_buttonicon, { 
+	s.icon_help = _uses(_buttonicon, {
 		img = _loadImage(self, "IconsResized/icon_help" .. skinSuffix),
 	})
 	s.wlan = _uses(_buttonicon, {
@@ -2858,7 +2858,7 @@ function skin(self, s)
 				align      = _tracklayout.align,
 				lineHeight = _tracklayout.lineHeight,
 				fg         = _tracklayout.fg,
-				font       = _boldfont(NP_TRACK_FONT_SIZE), 
+				font       = _boldfont(NP_TRACK_FONT_SIZE),
 				sh = TEXT_SH_COLOR,
 			},
 		},
@@ -2921,7 +2921,7 @@ function skin(self, s)
 	
 		--transport controls
 		npcontrols = {
-			order = { 'rew', 'div1', 'play', 'div2', 'fwd', 'div3', 'repeatMode', 'div4', 'shuffleMode', 
+			order = { 'rew', 'div1', 'play', 'div2', 'fwd', 'div3', 'repeatMode', 'div4', 'shuffleMode',
 					'div5', 'volDown', 'div6', 'volSlider', 'div7', 'volUp' },
 			position = LAYOUT_SOUTH,
 			h = controlHeight,
@@ -3185,21 +3185,21 @@ function skin(self, s)
 	s.nowplaying_art_only.pressed = s.nowplaying_art_only
 
 	s.nowplaying_text_only = _uses(s.nowplaying, {
-		nptitle = { 
+		nptitle = {
             x = 40,
             y = TITLE_HEIGHT + 50,
             nptrack = {
                 w = screenWidth - 65,
             },
 		},
-		npartistgroup = { 
+		npartistgroup = {
             x = 40,
             y = TITLE_HEIGHT + 50 + 65,
             npartist =  {
                 w = screenWidth - 65,
             },
 		},
-		npalbumgroup = { 
+		npalbumgroup = {
             x = 40,
             y = TITLE_HEIGHT + 50 + 60 + 55,
                 npalbum =  {
@@ -3312,7 +3312,7 @@ function skin(self, s)
 		}),
 
 		-- Drawn over regular info between buttons
-		nptitle = { 
+		nptitle = {
 			zOrder = 2,
 			position = LAYOUT_NONE,
 			x = 73,
@@ -3523,11 +3523,11 @@ function skin(self, s)
 	s.settings_slider = _uses(s.brightness_slider, {
 	})
 	s.settings_slider_group.pressed = {
-		down = _uses(s.settings_slider_group.down, { 
+		down = _uses(s.settings_slider_group.down, {
 			bgImg = sliderButtonPressed,
 			img = _loadImage(self, "Icons/icon_toolbar_minus_dis.png"),
 		}),
-		up = _uses(s.settings_slider_group.up, { 
+		up = _uses(s.settings_slider_group.up, {
 			bgImg = sliderButtonPressed,
 			img = _loadImage(self, "Icons/icon_toolbar_plus_dis.png"),
 		}),
@@ -3542,11 +3542,11 @@ function skin(self, s)
 		},
 	})
 	s.settings_volume_group.pressed = {
-		down = _uses(s.settings_volume_group.down, { 
+		down = _uses(s.settings_volume_group.down, {
 			bgImg = sliderButtonPressed,
 			img = _loadImage(self, "Icons/icon_toolbar_vol_down_dis.png"),
 		}),
-		up = _uses(s.settings_volume_group.up, { 
+		up = _uses(s.settings_volume_group.up, {
 			bgImg = sliderButtonPressed,
 			img = _loadImage(self, "Icons/icon_toolbar_vol_up_dis.png"),
 		}),
